@@ -1,0 +1,186 @@
+.typography {
+	font-family: "Lucida Grande", sans-serif;
+	font-size: 12px;
+	
+}
+
+.typography a {
+	color: #333;
+	font-weight: bold;
+}
+
+.typography p {
+	margin: 12px 0;
+	color: #666;
+}
+.typography h1 {
+	font-weight: bold;
+	font-size: 18px;
+	margin: .3em 0;
+	color: #333;
+}
+.typography h2 {
+	font-weight: bold;
+	font-size: 16px;
+	margin: .4em 0;
+	color: #333;
+}
+
+.typography em {
+	font-style: italic;
+	
+}
+
+.typography ul li{
+	margin: 20px 0;
+	list-style-type: square;
+	
+}
+
+.typography #related-works ul li {
+	list-style-type: none;	
+}
+
+.typography #related-works ul {
+	margin: 0;
+}
+
+#carousels ul {
+margin: 0;	
+}
+
+#carousels ul li {
+	
+	list-style: none;
+	margin: 0;
+}
+
+.typography ul {
+	margin: 20px 20px;	
+}
+
+.typography ul li ul {
+	margin: 10px;	
+}
+
+.typography ul li a{
+	color: #666;
+}
+
+.typography ul li h2 a{
+	color: #333;
+}
+
+
+
+.edit a{
+	color: white;
+	
+}
+/* tables */
+
+
+#results {
+	width:100%;
+	border-collapse:collapse;
+}
+#results td, #results th {
+	font-size: 12px;
+	/*border:1px solid #98bf21;*/
+	padding: 5px 5px;
+
+}
+
+#results td.result_info {
+	vertical-align: middle;	
+}
+
+#results p {
+	padding: 0;
+	margin: 0;
+	font-size: 12px;	
+}
+#results th {
+
+	text-align:left;
+	padding-top:5px;
+	
+	padding-bottom:4px;
+	background-color:#A7C942;
+	color:#ffffff;
+}
+#results tr.alt td {
+	color:#000000;
+	background-color:#EAF2D3;
+}
+
+#results tr.section-results {
+	background-color: #ffffcc;	
+}
+
+.toplink{
+	display: none;	
+}
+
+#results tr.section-results .toplink {
+		display: block;
+		font-weight: normal;
+		font-size: 10px;
+}
+
+
+
+#results td.hidden {
+	display: none;	
+}
+
+#results .artwork-thumbnail {
+	height: 50px;
+	width: 50px;
+}
+
+.caption {
+	color: #959595;
+	font-size: 12px;
+	padding: 20px 0;
+	
+}
+
+#guide-navigation {
+	font-size: 12px;
+}
+
+#thanks p{
+	font-size: 10px;	
+}
+
+#thanks h3{
+	font-size: 12px;	
+}
+
+
+#homepage-previewtext p {
+	color: #222222;
+	font-size: 16px;
+}
+
+.homepage-column-right h2 {
+	color: #d3005d;
+		margin: 0;
+	padding: 0;
+}
+
+.schedule h3{
+	color: #49b04b;
+	font-weight: bold;
+
+	
+}
+
+.schedule p{
+	font-size: 10px;	
+}
+
+.typography .message{
+	color:#d3005d;
+} 

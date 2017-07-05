@@ -1,0 +1,472 @@
+@charset "UTF-8";
+
+html {
+	
+		background: #212121;
+
+}
+
+body {
+	
+
+	
+}
+
+.clear {
+	clear: left;
+}
+#navigation {
+	float: right;
+display: inline;
+margin-top: 20px;
+padding-right: 20px;
+	
+}
+
+#lilpicardlogo {
+	
+float: left;	
+}
+
+#navigation ul li {
+	float: left;
+}
+
+#body-wrapper {
+	width: 1000px;
+	/*padding: 20px;*/
+	margin: auto;
+	background: white;
+}
+
+#content-container {
+	/*border: #333 1px solid;*/
+	width: 390px;
+	overflow: auto;
+	float: left;
+	
+}
+
+#content-single {
+	width: 600px;
+	float: left;
+}
+
+#content {
+	padding: 10px 0;
+	
+}
+
+#left {
+	width: 663px;
+	float: left;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+#right {
+	width: 234px;
+	float: left;
+	margin-left: 25px; 
+	margin-top: 25px;
+
+}
+
+#main-carousel-container {
+	width: 660px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	background-color: #eee;
+	border: 1px solid #ddd;
+	margin-top: 25px;
+}
+
+#externalControl {
+	margin: auto;
+	text-align: center;
+	display: block;
+	margin-top: 10px;
+}
+
+#mycarousel {
+	height: 300px;
+
+	/*border: #FCF 1px solid;*/
+	margin: auto;
+	display: block;
+	
+}
+
+#mycarousel img {
+	border: 1px solid #eee;
+	padding: 0 10px;
+}
+
+/*#mycarousel ul li {
+	border: 1px solid #ddd;	
+	margin: 0 10px;
+	
+}*/
+
+#player {
+	margin-left: 192px;
+}
+
+#search-container {
+	/*border: #333 1px solid;*/
+	width: 270px;
+	float: left;
+}
+
+#search-results {
+	height: 600px;
+	margin-top: 20px;
+	overflow-y: scroll;
+}
+
+#header {
+	height: 70px;
+	padding-bottom: 10px;
+}
+
+#header img {
+	margin-left: 20px;	
+}
+
+#search-bar {
+	width: 234px;
+	
+
+}
+
+
+#search-bar form{
+	width: 270px;
+	
+}
+
+#search-bar img {
+	float: left;
+	margin-left: 10px;
+}
+
+#search-bar form {
+	float: left;
+}
+
+#search-categories {
+	width: 210px;
+	background-color: #ffffcc;
+	padding: 10px;
+	
+	
+}
+
+#related-works ul li {
+float: left;
+padding-right: 10px;
+}
+
+#related-works .first{
+margin-left: 0;	
+}
+
+form.category-form legend {
+  padding: 0 2px;
+  font-weight: bold;
+}
+form.category-form label {
+  display: inline-block;
+  line-height: 1.8;
+  vertical-align: top;
+}
+
+form.category-form input {
+	/*height: 20px;
+	width: 20px;*/
+}
+
+form.category-form fieldset {
+  border: none;
+  margin: 3px 0 0;
+  float: left;
+}
+form.category-form fieldset legend {
+  padding: 0 0 5px;
+  font-weight: normal;
+  color: #333;
+  display: block;
+}
+form.category-form fieldset label {
+	
+  display: block;
+  width: auto;
+}
+form.category-form em {
+  font-weight: bold;
+  font-style: normal;
+  color: #f00;
+}
+
+form.category-form span {
+	padding: 0 5px;	
+}
+
+form.category-form fieldset label {
+
+}
+
+form.category-form h2 {
+	margin: 0;
+	color: #333;
+}
+
+#search-options-button{
+	cursor: pointer;
+	
+}
+
+#id_search {
+	width: 220px;
+	float: left;
+	background-color: #eee;
+	border: 1px solid #ddd;
+	padding: 5px;
+	background-image: url(../images/search_icon.png);
+	background-repeat: no-repeat;
+	background-position: 210px 6px;
+}
+
+#header h1 {
+	display: inline;
+	float: left;
+}
+
+#carousels {
+	float: right;
+	width: 150px;
+	height: 350px;
+	background: #eeeeee;
+	overflow-y: scroll;
+	padding: 30px;
+	margin-top: 30px;
+	margin-left: 50px;
+}
+
+#carousels li {
+	/*padding: 20px 0;*/
+	padding-bottom: 20px;
+}
+
+#carousels li a {
+	/*padding: 20px 0;*/
+	margin-top: 40px;
+}
+
+#carousels img {
+	display: block;
+	border: 1px solid #ddd;
+}
+
+#homepage-content{
+
+	width: 1000px;
+	float: left;	
+	padding: 20px;
+}
+
+ #homepage-previewtext {
+	 
+	width: 575px;
+
+}
+
+ #homepage-previewtext p{
+	 
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+.homepage-column{
+	width: 575px;
+	float: left;
+}
+
+.homepage-column-right{
+	width: 343px;
+	float: left;
+	margin-left: 20px;
+}
+
+
+#homepage-links img{
+	padding: 5px 0;
+}
+
+
+.schedule {
+	width: 165px;
+	float: left;
+	padding-right: 0px;
+}
+
+#thanks {
+	background: #ecebe9;
+	width: 313px;
+	padding: 15px;
+	margin-top: 5px;
+}
+
+#thanks img{
+	float: right;	
+}
+
+
+
+#guide-content {
+	width: 1000px;
+	padding: 20px;
+	
+
+}
+
+.logo{
+	display: block;	
+	margin-left: 15px;
+}
+
+.guide-column {
+	width: 470px;
+	float: left;
+	padding-right: 20px;
+}
+
+.guide-column img{
+	float: right;
+	padding: 5px;
+}
+
+.first {
+	margin-left: 0;	
+}
+
+#guide-navigation {
+	padding: 20px;
+	float: right;
+	margin-top: 10px;
+	/*margin-left: 1950px;*/
+}
+
+#guide-navigation a {
+	color: #da1c5c;	
+}
+
+#footer {
+
+	padding: 20px;
+	height: 70px;
+	background: #f1f1f1;
+}
+
+#footer p {
+	float: right;
+}
+
+#uima-logo {
+	float: left;	
+}
+
+#uilibraries-logo{
+	float: left;
+	margin-left: 20px;
+	margin-top: 9px;
+}
+
+
+/* Comments */
+
+#PageComments_holder {
+	width: 570px;
+	float: left;
+	padding: 0 20px;
+	
+}
+
+#post-comments {
+	float: left;
+	width: 343px;
+	padding: 15px;
+	background: #f1f1f1;
+	
+	
+}
+
+#post-comments input, #post-comments textarea {
+	width: 315px;	
+}
+
+#post-comments textarea{
+	height: 217px;	
+}
+
+#post-comments .action {
+	
+	width: 50px;
+	
+}
+#post-comments .field {
+	
+	padding: 5px 0;
+}
+
+#post-comments .field label {
+	display: block;
+	padding: 5px 0;	
+}
+
+ ul#PageComments li {
+	border-top: 1px solid #cccccc;
+	padding: 10px 0;
+	list-style: none;
+
+}
+
+
+
+#PageComments ul li {
+	border: none;
+	padding: 0;
+	font-size: 10px;
+}
+
+
+
+ #post-comments h2{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#post-comments-footer {
+	display: block;
+	padding-top: 10px;
+}
+
+#post-comments-footer a{
+	color: #d4005d;
+}
+
+.typography.remembrances {
+	color: #d4005d;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 20px;
+}
+
+#thanks-message {
+	padding: 10px 20px;	
+	background: #fffedf;
+	border: 1px solid #edebae;
+}
+
+
+
