@@ -4,11 +4,11 @@
 	<div id="CommentHolder">
 		<% if Comments %>
 			<ul id="PageComments">
-				<% control Comments %>
+				<% loop Comments %>
 					<li class="$EvenOdd<% if FirstLast %> $FirstLast <% end_if %> $SpamClass">
 						<% include PageCommentInterface_singlecomment %>
 					</li>
-				<% end_control %>
+				<% end_loop %>
 			</ul>
 			
 			<% if Comments.MoreThanOnePage %>
@@ -19,13 +19,13 @@
 					<% end_if %>
 					
 					<% if Comments.Pages %>
-						<% control Comments.Pages %>
+						<% loop Comments.Pages %>
 							<% if CurrentBool %>
 								<strong>$PageNum</strong>
 							<% else %>
 								<a href="$Link">$PageNum</a>
 							<% end_if %>
-						<% end_control %>
+						<% end_loop %>
 					<% end_if %>
 	
 					<% if Comments.NextLink %>

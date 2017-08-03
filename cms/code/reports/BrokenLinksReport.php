@@ -8,11 +8,11 @@
 
 class BrokenLinksReport extends SS_Report {
 
-	function title() {
+	public function title() {
 		return _t('BrokenLinksReport.BROKENLINKS',"Broken links report");
 	}
 	
-	function sourceRecords($params, $sort, $limit) {
+	public function sourceRecords($params, $sort, $limit) {
 		$join = '';
 		$sortBrokenReason = false;
 		if($sort) {
@@ -29,11 +29,17 @@ class BrokenLinksReport extends SS_Report {
 				$sort = '';
 			}
 		}
-		$q = DB::USE_ANSI_SQL ? '"' : '`';
-		if (!isset($_REQUEST['CheckSite']) || $params['CheckSite'] == 'Published') $ret = Versioned::get_by_stage('SiteTree', 'Live', "({$q}SiteTree{$q}.{$q}HasBrokenLink{$q} = 1 OR {$q}SiteTree{$q}.{$q}HasBrokenFile{$q} = 1)", $sort, $join, $limit);
-		else $ret = DataObject::get('SiteTree', "({$q}SiteTree{$q}.{$q}HasBrokenFile{$q} = 1 OR {$q}HasBrokenLink{$q} = 1)", $sort, $join, $limit);
+		$brokenFilter = array(
+			'"SiteTree"."HasBrokenLink" = ? OR "SiteTree"."HasBrokenFile" = ?' => array(true, true)
+		);
+		$isLive = !isset($params['CheckSite']) || $params['CheckSite'] == 'Published';
+		if ($isLive) {
+			$ret = Versioned::get_by_stage('SiteTree', 'Live', $brokenFilter, $sort, $join, $limit);
+		} else {
+			$ret = DataObject::get('SiteTree', $brokenFilter, $sort, $join, $limit);
+		}
 		
-		$returnSet = new DataObjectSet();
+		$returnSet = new ArrayList();
 		if ($ret) foreach($ret as $record) {
 			$reason = false;
 			$isRedirectorPage = in_array($record->ClassName, ClassInfo::subclassesFor('RedirectorPage'));
@@ -69,24 +75,28 @@ class BrokenLinksReport extends SS_Report {
 			}
 		}
 		
-		if($sortBrokenReason) $returnSet->sort('BrokenReason', $direction);
+		if($sortBrokenReason) $returnSet = $returnSet->sort('BrokenReason', $direction);
 		
 		return $returnSet;
 	}
-	function columns() {
-		if(isset($_REQUEST['CheckSite']) && $_REQUEST['CheckSite'] == 'Draft') {
+	public function columns() {
+		if(isset($_REQUEST['filters']['CheckSite']) && $_REQUEST['filters']['CheckSite'] == 'Draft') {
 			$dateTitle = _t('BrokenLinksReport.ColumnDateLastModified', 'Date last modified');
 		} else {
 			$dateTitle = _t('BrokenLinksReport.ColumnDateLastPublished', 'Date last published');
 		}
 		
+		$linkBase = singleton('CMSPageEditController')->Link('show');
 		$fields = array(
 			"Title" => array(
 				"title" => _t('BrokenLinksReport.PageName', 'Page name'),
-				'formatting' => sprintf(
-					'<a href=\"admin/show/$ID\" title=\"%s\">$value</a>',
-					_t('BrokenLinksReport.HoverTitleEditPage', 'Edit page')
-				)
+				'formatting' => function($value, $item) use ($linkBase) {
+					return sprintf('<a href="%s" title="%s">%s</a>',
+						Controller::join_links($linkBase, $item->ID),
+						_t('BrokenLinksReport.HoverTitleEditPage', 'Edit page'),
+						$value
+					);
+				}
 			),
 			"LastEdited" => array(
 				"title" => $dateTitle,
@@ -97,14 +107,22 @@ class BrokenLinksReport extends SS_Report {
 			),
 			'AbsoluteLink' => array(
 				'title' => _t('BrokenLinksReport.ColumnURL', 'URL'),
-				'formatting' => '$value " . ($AbsoluteLiveLink ? "<a target=\"_blank\" href=\"$AbsoluteLiveLink\">(live)</a>" : "") . " <a target=\"_blank\" href=\"$value?stage=Stage\">(draft)</a>'
+				'formatting' => function($value, $item) {
+					$liveLink = $item->AbsoluteLiveLink;
+					$stageLink = $item->AbsoluteLink();
+					return sprintf('%s <a href="%s">%s</a>',
+						$stageLink,
+						$liveLink ? $liveLink : Controller::join_links($stageLink, '?stage=Stage'),
+						$liveLink ? '(live)' : '(draft)'
+					);
+				}
 			)
 		);
 		
 		return $fields;
 	}
-	function parameterFields() {
-		return new FieldSet(
+	public function parameterFields() {
+		return new FieldList(
 			new DropdownField('CheckSite', _t('BrokenLinksReport.CheckSite','Check site'), array(
 				'Published' => _t('BrokenLinksReport.CheckSiteDropdownPublished', 'Published Site'),
 				'Draft' => _t('BrokenLinksReport.CheckSiteDropdownDraft', 'Draft Site')
@@ -121,5 +139,16 @@ class BrokenLinksReport extends SS_Report {
 				)
 			)
 		);
+	}
+}
+
+
+/**
+ * @deprecated 3.2..4.0
+ */
+class SideReport_BrokenLinks extends BrokenLinksReport {
+	public function __construct() {
+		Deprecation::notice('4.0', 'Use BrokenLinksReport instead');
+		parent::__construct();
 	}
 }

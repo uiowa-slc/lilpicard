@@ -2,11 +2,11 @@
 
 class CommentsPage extends Page {
 	
-	public static $db = array(
+	private static $db = array(
 
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 	
 	function getCMSFields() {

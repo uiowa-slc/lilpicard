@@ -56,18 +56,18 @@ Fashion -->
 	<div id="search-results">
 	<table id="results" class="typography">
 		<tbody>
-			<% control ArtworkPieces %>
+			<% loop ArtworkPieces %>
 			<% if Featured %>
 			<tr class="{$LinkOrSection}-results" id="result{$Pos}">
-				<td class="artwork-thumbnail"><a name="{$ID}" href="{$Link}#{$ID}"><% control ThumbnailImage %><% control CroppedImage(50,50) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_control %><% end_control %></a></td>
+				<td class="artwork-thumbnail"><a name="{$ID}" href="{$Link}#{$ID}"><% loop ThumbnailImage %><% with CroppedImage(50,50) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_loop %></a></td>
 				<td class="result_info"><a href="{$Link}#{$ID}">$Title<% if Date %>, $Date <% end_if %></a>
 					<p>$Medium</p></td>
 					
 			
 					<td class="hidden"> all<% if Categories %>
-				<% control Categories %>
+				<% loop Categories %>
 				$Title.ATT
-				<% end_control %>
+				<% end_loop %>
 				<% end_if %>
 				</td>
 		
@@ -76,7 +76,7 @@ Fashion -->
 		
 		<% end_if %>
 		
-		<% end_control %>
+		<% end_loop %>
 		</tbody>
 		
 	</table>

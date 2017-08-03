@@ -1,10 +1,10 @@
 {
 	"name": "silverstripe/cms",
-	"description": "The SilverStripe Content Management System",
 	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "cms"],
-	"homepage": "http://silverstripe.org/cms",
+	"description": "The SilverStripe Content Management System",
+	"homepage": "http://silverstripe.org",
 	"license": "BSD-3-Clause",
+	"keywords": ["silverstripe", "cms"],
 	"authors": [
 		{
 			"name": "SilverStripe",
@@ -16,8 +16,19 @@
 		}
 	],
 	"require": {
-		"php": ">=5.2.4",
+		"php": ">=5.3.3",
 		"composer/installers": "*",
-		"silverstripe/framework": "2.4.*"
-	}
+		"silverstripe/framework": "~3.4",
+		"silverstripe/reports": "~3.4",
+		"silverstripe/siteconfig": "~3.4"
+	},
+	"extra": {
+		"branch-alias": {
+			"3.x-dev": "3.6.x-dev"
+		}
+	},
+	"autoload": {
+		"classmap": ["tests/behat/"]
+	},
+	"minimum-stability": "dev"
 }

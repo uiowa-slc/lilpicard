@@ -2,23 +2,23 @@
 
 class ArtworkImage extends SiteTree {
 	
-	public static $db = array(
+	private static $db = array(
 	
 	
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 		"Image" => "Image"
 	
 	);
 	
    
-   function getCMSFields() {
+   public function getCMSFields() {
 	   $fields = parent::getCMSFields();
 	   $fields->renameField("Title","Title");
-	   $fields->removeFieldFromTab("Root.Content.Main","Content");
-	   	   $fields->addFieldToTab("Root.Content.Main", new ImageField("Image", "Image"));
-	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Content", "Description"));
+	   $fields->removeFieldFromTab("Root.Main","Content");
+	   $fields->addFieldToTab("Root.Main", new UploadField("Image", "Image"));
+	   $fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Description"));
 	   return $fields;
    }
 	

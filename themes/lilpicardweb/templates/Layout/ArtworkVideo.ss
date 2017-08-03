@@ -7,19 +7,19 @@
 <div id="content-container" class="typography">
 	<div id="content">
 	<h2>$Title</h2>
-	<% control Parent %>
+	<% with Parent %>
 		<h2>$Title<% if Date %>, $Date <% end_if %></h2>
 		$Content
 		$Forms 
 		
-	<% end_control %>
+	<% end_with %>
 		</div>
 		
-	<% control Parent %>
+	<% with Parent %>
 	<% if RelatedArtworkPieces %>
 		<% include RelatedArtwork %>
 	<% end_if %>
-	<% end_control %>
+	<% end_with %>
 
 </div>
 
@@ -27,25 +27,25 @@
 	<div id="carousels" class="typography">
 		<ul>
 		
-			<% control videos %>
+			<% loop videos %>
 			
-				<li><a href="{$Link}#{$Parent.ID}"><% control Image %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
-			<% end_control %>
+				<li><a href="{$Link}#{$Parent.ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
+			<% end_loop %>
 			
 			<% if Parent.VideosOnly %>
 		
 			<% else %>
-					<% control Parent %>
-			<li><a href="{$Link}#{$ID}"><% control ThumbnailImage %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %></a><a href="$Link">$Title</a></li>
-		<% end_control %>
+					<% with Parent %>
+			<li><a href="{$Link}#{$ID}"><% with ThumbnailImage %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="$Link">$Title</a></li>
+		<% end_with %>
 		<% end_if %>
 
-			<% control carousels %>
+			<% loop carousels %>
 			
-				<li><a href="{$Link}#{$Parent.ID}"><% control Image %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %></a> 
+				<li><a href="{$Link}#{$Parent.ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a> 
 				<a href="$Link">$Title</a></li>
 		
-			 <% end_control %>
+			 <% end_loop %>
 		</ul>
 	</div>
 	
@@ -56,15 +56,15 @@
 			<% if Parent.VideosOnly %>
 			
 			<% else %>
-								<% control Parent %>
+								<% with Parent %>
 							
-			<li><a href="{$Link}#{$ID}"><% control ThumbnailImage %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %></a><a href="$Link">$Title</a></li>
-		<% end_control %>
+			<li><a href="{$Link}#{$ID}"><% with ThumbnailImage %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="$Link">$Title</a></li>
+		<% end_with %>
 		<% end_if %>
 			
-				<% control videos %>
-	<li><a href="{$Link}#{$Parent.ID}"><% control Image %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
-				<% end_control %>
+				<% loop videos %>
+	<li><a href="{$Link}#{$Parent.ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
+				<% end_loop %>
 			</ul>
 		</div>
 	

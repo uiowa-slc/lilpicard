@@ -3,9 +3,9 @@
 	<div id="mycarousel">
 
 		<ul >
-			<% control Children %>
-			<li><% control Image %><% control SetWidth(1200) %><a href="$URL" class="thickbox" title="$Content.ATT" rel="carousel"><% end_control %><% end_control %><% control Image %><% control PaddedImage(292,300) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_control %><% end_control %> </a></li>
-			<% end_control %>
+			<% loop Children %>
+			<li><% with Image %><% with SetWidth(1200) %><a href="$URL" class="thickbox" title="$Content.ATT" rel="carousel"><% end_with %><% end_with %><% with Image %><% with PaddedImage(292,300) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
+			<% end_loop %>
 		</ul>
 		<!--			<a class="prev" href="#">previous</a> <a class="next" href="#">next</a> <br /> -->
 	
@@ -13,9 +13,9 @@
 	</div>
 	
 		<div id="externalControl">
-			<% control Children %>
+			<% loop Children %>
 			<a href="#" class="{$Pos}" onClick="buttons({$Pos});"><img src="$ThemeDir/images/circle_inactive.png" id="dot{$Pos}"/></a>
-			<% end_control %>
+			<% end_loop %>
 		</div>
 </div>
 <div id="content-container" class="typography">
@@ -32,21 +32,21 @@
 	
 		<ul>
 		
-			<% control videos %>
-				<li><a href="{$Link}#{$ID}"><% control Image %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
-			<% end_control %>
+			<% loop videos %>
+				<li><a href="{$Link}#{$ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
+			<% end_loop %>
 			
 		
-		<% control Parent %>
-			<li><a href="{$Link}#{$ID}test"><% control ThumbnailImage %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %></a><a href="{$Link}#{$ID}">$Title</a></li>
-		<% end_control %>
+		<% with Parent %>
+			<li><a href="{$Link}#{$ID}test"><% with ThumbnailImage %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$ID}">$Title</a></li>
+		<% end_with %>
 		
 		<% if carousels %>
-			<% control carousels %>
+			<% loop carousels %>
 	
-				<li><a href="{$Link}#{$ID}"><% control Image %><% control PaddedImage(150, 113) %><img src="$URL" /><% end_control %><% end_control %> </a>
+				<li><a href="{$Link}#{$ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %> </a>
 				<a href="{$Link}#{$ID}">$Title</a></li>
-			 <% end_control %>
+			 <% end_loop %>
 		<% end_if %>
 		
 		</ul>

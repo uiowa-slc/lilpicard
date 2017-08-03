@@ -15,9 +15,9 @@ $Title - Lil Picard
 <% end_if %>
 
 </title>
-<% control Page(home) %>
+<% with Page(home) %>
 $MetaTags(false)
-<% end_control %>
+<% end_with %>
 <% base_tag %>
 
 <script type="text/javascript" src="{$BaseHref}/mysite/javascript/jquery.min.js"></script>
@@ -110,13 +110,13 @@ $(function() {
 	
 	<div id ="navigation">
 	<ul>
-		<% control Menu(1) %>
+		<% loop Menu(1) %>
 		<% if LinkOrSection = section %>
 		<li><img src="$ThemeDir/images/navigation_web/{$URLSegment}.png" /></li>
 		<% else  %>
 		<li><a href="$Link"><img src="$ThemeDir/images/navigation_web/{$URLSegment}.png" /></a></li>
 		<% end_if %>
-		<% end_control %>
+		<% end_loop %>
 		
 		<% if CurrentMember %>
 		<li class="edit"><a href="{$BaseHref}admin/show/{$ID}" target="_blank">edit</a></li>

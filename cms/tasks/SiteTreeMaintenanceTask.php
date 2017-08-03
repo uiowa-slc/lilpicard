@@ -4,26 +4,33 @@
  * @subpackage tasks
  */
 class SiteTreeMaintenanceTask extends Controller {
-	static $allowed_actions = array(
+	private static $allowed_actions = array(
 		'*' => 'ADMIN'
 	);
 	
-	function makelinksunique() {
+	public function makelinksunique() {
 		$badURLs = "'" . implode("', '", DB::query("SELECT URLSegment, count(*) FROM SiteTree GROUP BY URLSegment HAVING count(*) > 1")->column()) . "'";
-		$pages = DataObject::get("SiteTree", "\"URLSegment\" IN ($badURLs)");
+		$pages = DataObject::get("SiteTree", "\"SiteTree\".\"URLSegment\" IN ($badURLs)");
 
 		foreach($pages as $page) {
 			echo "<li>$page->Title: ";
 			$urlSegment = $page->URLSegment;
 			$page->write();
 			if($urlSegment != $page->URLSegment) {
-				echo sprintf(_t('SiteTree.LINKSCHANGEDTO', " changed %s -> %s"), $urlSegment, $page->URLSegment);
+				echo _t(
+					'SiteTree.LINKSCHANGEDTO',
+					" changed {url1} -> {url2}",
+					array('url1' => $urlSegment, 'url2' => $page->URLSegment)
+				);
 			}
 			else {
-				echo sprintf(_t('SiteTree.LINKSALREADYUNIQUE', " %s is already unique"), $urlSegment);
+				echo _t(
+					'SiteTree.LINKSALREADYUNIQUE',
+					" {url} is already unique",
+					array('url' => $urlSegment)
+				);
 			}
 			die();
 		}
 	}
 }
-?>

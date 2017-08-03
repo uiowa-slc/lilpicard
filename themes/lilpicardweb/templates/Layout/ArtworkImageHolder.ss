@@ -6,9 +6,9 @@
 	<div id="mycarousel">
 
 		<ul >
-			<% control Children %>
-			<li><a href="$Image.URL" class="thickbox" title="$Content.ATT"><% control Image %><% control PaddedImage(800,600) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_control %><% end_control %> </a></li>
-			<% end_control %>
+			<% loop Children %>
+			<li><a href="$Image.URL" class="thickbox" title="$Content.ATT"><% with Image %><% with PaddedImage(800,600) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
+			<% end_loop %>
 		</ul>
 		<!--			<a class="prev" href="#">previous</a> <a class="next" href="#">next</a> <br /> -->
 	
@@ -16,9 +16,9 @@
 	</div>
 	
 		<div id="externalControl">
-			<% control Children %>
+			<% loop Children %>
 			<a href="#" class="{$Pos}" onClick="buttons({$Pos});"><img src="$ThemeDir/images/circle_inactive.png" id="dot{$Pos}"/></a>
-			<% end_control %>
+			<% end_loop %>
 		</div>
 </div>
 <div id="content-container" class="typography">
@@ -30,9 +30,9 @@
 	<div id="related-works">
 		<h2>Related</h2>
 		<ul>
-			<% control RelatedArtworkPieces %>
+			<% with RelatedArtworkPieces %>
 			<li><a href="$Link">$Title</a></li>
-			<% end_control %>
+			<% end_with %>
 		</ul>
 	</div>
 	<% end_if %>
@@ -41,9 +41,9 @@
 	<div id="categories">
 		<h2>Categories</h2>
 		<ul>
-			<% control Categories %>
+			<% loop Categories %>
 			<li>$Title</li>
-			<% end_control %>
+			<% end_loop %>
 		</ul>
 	</div>
 	<% end_if %>
@@ -53,10 +53,10 @@
 	
 		<ul>
 		<% if carousels %>
-			<% control carousels %>
-				<li><% control Image %><% control PaddedImage(300, 225) %><img src="$URL" /><% end_control %><% end_control %> 
+			<% loop carousels %>
+				<li><% with Image %><% with PaddedImage(300, 225) %><img src="$URL" /><% end_with %><% end_with %> 
 				<a href="$Link">$Title</a></li>
-			 <% end_control %>
+			 <% end_loop %>
 		<% end_if %>
 		
 		</ul>

@@ -2,7 +2,7 @@
 
 class GuidePage extends SiteTree {
 	
-	public static $db = array(
+	private static $db = array(
 		"Column1" => "HTMLText",
 		"Column2" => "HTMLText",
 		"Column3" => "HTMLText",
@@ -10,15 +10,15 @@ class GuidePage extends SiteTree {
 
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 	
 	function getCMSFields() {
 	   $fields = parent::getCMSFields();
-	   $fields->removeFieldFromTab("Root.Content.Main","Content");
+	   $fields->removeFieldFromTab("Root.Main","Content");
 	   
-	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Column1", "Column 1"));
-	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Column2", "Column 2"));
+	   $fields->addFieldToTab("Root.Main", new HTMLEditorField("Column1", "Column 1"));
+	   $fields->addFieldToTab("Root.Main", new HTMLEditorField("Column2", "Column 2"));
 	   /*$fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Column3", "Column 3"));
 	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Column4", "Column 4"));*/
 
@@ -37,33 +37,38 @@ class GuidePage_Controller extends Page_Controller {
 	}
 	
 	public function guidePages(){
-		return DataObject::get("GuidePage");
+		return GuidePage::get();
 	}
 	
-	public function PrevNextPage($Mode = 'next') {
+	public function PrevNextPage($Mode) {
  
 		if($Mode == 'next'){
-			$Where = "ParentID = ($this->ParentID) AND Sort > ($this->Sort)";
-			$Sort = "Sort ASC";
+			$page = SiteTree::get()->filter(array(
+				'ParentID' => $this->ParentID,
+				'Sort:GreaterThan' => $this->Sort,
+			))->First();
+
  		}
  		elseif($Mode == 'prev'){
- 			$Where = "ParentID = ($this->ParentID) AND Sort < ($this->Sort)";
-			$Sort = "Sort DESC";
+ 			$page = SiteTree::get()->filter(array(
+				'ParentID' => $this->ParentID,
+				'Sort:LessThan' => $this->Sort,
+			))->Last();
  		}
  		else{
  			return false;
  		}
  
-		return DataObject::get("SiteTree", $Where, $Sort, null, 1);
+		return $page;
  	
-  }
+  	}
   
 	public function NumberOfSiblings(){
-		return DataObject::get("SiteTree","ParentID = ($this->ParentID)")->Count();
+		return SiteTree::get()->filter(array("ParentID" => $this->ParentID))->Count();
 	}
 	public function CurrentPageNumber(){
-		return (DataObject::get("SiteTree","ParentID = ($this->ParentID) AND Sort <= ($this->Sort)")->Count());
-}
+		return DataObject::get("SiteTree","ParentID = ($this->ParentID) AND Sort <= ($this->Sort)")->Count();
+	}
 	
 	
 }

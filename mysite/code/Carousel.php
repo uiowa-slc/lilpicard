@@ -2,19 +2,19 @@
 
 class Carousel extends ArtworkImageHolder {
 	
-	public static $db = array(
+	private static $db = array(
 	
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 								   
 		
 	);
 	
-	public static $allowed_children = array("ArtworkPiece", "ArtworkImage");
+	private static $allowed_children = array("ArtworkPiece", "ArtworkImage");
 										   
 	
-   function getCMSFields() {
+   public function getCMSFields() {
 	   $fields = parent::getCMSFields();
 
 	   return $fields;
@@ -29,14 +29,14 @@ class Carousel_Controller extends Page_Controller {
 	}
 	
 		public function carousels(){
-		$set = DataObject::get("Carousel", "ParentID = ".$this->getParent()->ID);
+		$set = Carousel::get()->filter(array("ParentID" => $this->ParentID));
 		
 		return $set;
 		
 	}
 	
 	public function videos(){
-		$set = DataObject::get("ArtworkVideo", "ParentID = ".$this->getParent()->ID);
+		$set = ArtworkVideo::get()->filter(array("ParentID" => $this->ParentID));
 		return $set;
 		
 	}

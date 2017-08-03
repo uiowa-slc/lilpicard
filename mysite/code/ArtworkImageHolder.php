@@ -2,22 +2,24 @@
 
 class ArtworkImageHolder extends SiteTree {
 	
-	public static $db = array(
+	private static $db = array(
 	
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 		"Image" => "Image"
 		
 	);
 	
-   static $many_many = array(
+
+
+   private static $many_many = array(
      
    );
    
-   function getCMSFields() {
+   public function getCMSFields() {
 	   $fields = parent::getCMSFields();
-	   	   $fields->addFieldToTab("Root.Content.Main", new ImageField("Image", "Thumbnail Image"));
+	   	   $fields->addFieldToTab("Root.Main", new UploadField("Image", "Thumbnail Image"));
 	   return $fields;
    }
 	
@@ -30,7 +32,7 @@ class ArtworkImageHolder_Controller extends Page_Controller {
 	}
 	
 	public function carousels(){
-		$set = DataObject::get("Carousel", "ParentID = ".$this->getParent()->ID);
+		$set = Carousel::get()->filter(array("ParentID" => $this->ParentID));
 		return $set;
 		
 	}

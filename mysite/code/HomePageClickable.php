@@ -2,24 +2,24 @@
 
 class HomePageClickable extends Page {
 	
-	public static $db = array(
+	private static $db = array(
 		"IntroText" => "HTMLText",
 		"Column1" => "HTMLText",
 		"Column2" => "HTMLText",
 		"ThanksBox" => "HTMLText"
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 	
-	function getCMSFields() {
+	public function getCMSFields() {
 	   $fields = parent::getCMSFields();
-	   $fields->removeFieldFromTab("Root.Content.Main","Content");
+	   $fields->removeFieldFromTab("Root.Main","Content");
 	   
-	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("IntroText", "Top Text"));
-	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Column1", "Left Column"));
-	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Column2", "Right Column"));
-	   $fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("ThanksBox", "Thanks Box"));
+	   $fields->addFieldToTab("Root.Main", new HTMLEditorField("IntroText", "Top Text"));
+	   $fields->addFieldToTab("Root.Main", new HTMLEditorField("Column1", "Left Column"));
+	   $fields->addFieldToTab("Root.Main", new HTMLEditorField("Column2", "Right Column"));
+	   $fields->addFieldToTab("Root.Main", new HTMLEditorField("ThanksBox", "Thanks Box"));
 
 
 

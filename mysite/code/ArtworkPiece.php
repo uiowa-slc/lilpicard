@@ -2,7 +2,7 @@
 
 class ArtworkPiece extends SiteTree {
 	
-	public static $db = array(
+	private static $db = array(
 		"Date" => "Text",
 		"Featured" => "Boolean",
 		"VideosOnly" => "Boolean",
@@ -13,37 +13,37 @@ class ArtworkPiece extends SiteTree {
 		"Year" => "Int"
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 		"ThumbnailImage" => "Image"
 	
 	);
 	
-   static $field_types = array(
+   private static $field_types = array(
       'Title' => 'TextField'
    );
  
-   static $field_names = array(
+   private static $field_names = array(
       'Title' => 'Title'
    );
 	
-   static $many_many = array(
+   private static $many_many = array(
       "Categories" => "Category",
 	  "RelatedArtworkPieces" => "ArtworkPiece",
    );
    
-   static $belongs_many_many = array(
+   private static $belongs_many_many = array(
 	'RelatedArtworkPiece' => 'ArtworkPiece'								 
    );
    
-   function getCMSFields() {
+   public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->renameField("Title","Title");
-		$fields->removeFieldFromTab("Root.Content.Main","Content");
-		$fields->addFieldToTab("Root.Content.Main", new CheckboxField("Featured", "Featured?"));
-		$fields->addFieldToTab("Root.Content.Main", new CheckboxField("VideosOnly", "Does this piece contain videos only?"));
-		$fields->addFieldToTab("Root.Content.Main", new ImageField("ThumbnailImage", "Thumbnail Image"));
-		$categoryList = DataObject::get('Category');
-		$fields->addFieldToTab('Root.Content.Main', new CheckboxSetField('Categories', 'Category:', $categoryList));
+		$fields->removeFieldFromTab("Root.Main","Content");
+		$fields->addFieldToTab("Root.Main", new CheckboxField("Featured", "Featured?"));
+		$fields->addFieldToTab("Root.Main", new CheckboxField("VideosOnly", "Does this piece contain videos only?"));
+		$fields->addFieldToTab("Root.Main", new UploadField("ThumbnailImage", "Thumbnail Image"));
+		$categoryList = Category::get();
+		$fields->addFieldToTab('Root.Main', new CheckboxSetField('Categories', 'Category:', $categoryList));
 		
 		
 		/*$relatedWorksTablefield = new ManyManyComplexTableField(
@@ -56,20 +56,20 @@ class ArtworkPiece extends SiteTree {
          'getCMSFields_forPopup'
       );
       $modulesTablefield->setAddTitle( 'A Module' );
-		 $fields->addFieldToTab( 'Root.Content.Main', $modulesTablefield );
+		 $fields->addFieldToTab( 'Root.Main', $modulesTablefield );
 */
 		
 		
-		$fields->addFieldToTab("Root.Content.Main", new TextField("Date", "Date"));
-		$fields->addFieldToTab("Root.Content.Main", new TextField("Year", "Artwork Year (for sorting purposes)"));
-		$fields->addFieldToTab("Root.Content.Main", new TextField("Medium", "Short Description"));
-		/*$fields->addFieldToTab("Root.Content.Main", new TextField("Size", "Size"));
-		$fields->addFieldToTab("Root.Content.Main", new TextField("CatalogID", "Catalog ID"));*/
-		$fields->addFieldToTab("Root.Content.Main", new HTMLEditorField("Content", "Description"));
+		$fields->addFieldToTab("Root.Main", new TextField("Date", "Date"));
+		$fields->addFieldToTab("Root.Main", new TextField("Year", "Artwork Year (for sorting purposes)"));
+		$fields->addFieldToTab("Root.Main", new TextField("Medium", "Short Description"));
+		/*$fields->addFieldToTab("Root.Main", new TextField("Size", "Size"));
+		$fields->addFieldToTab("Root.Main", new TextField("CatalogID", "Catalog ID"));*/
+		$fields->addFieldToTab("Root.Main", new HTMLEditorField("Content", "Description"));
 
 		// Setup a table field to allow editing of categories within the system
-		$relatedPiecesList = DataObject::get('ArtworkPiece');
-		$fields->addFieldToTab('Root.Content.RelatedPieces', new CheckboxSetField('RelatedArtworkPieces', '', $relatedPiecesList));
+		$relatedPiecesList = ArtworkPiece::get();
+		$fields->addFieldToTab('Root.RelatedPieces', new CheckboxSetField('RelatedArtworkPieces', '', $relatedPiecesList));
 	   return $fields;
    }
 	
@@ -81,13 +81,13 @@ class ArtworkPiece_Controller extends Page_Controller {
 		parent::init();
 
 		if($this->VideosOnly){
-			$firstVideo = DataObject::get_one("ArtworkVideo","ParentID = ".$this->ID);
+			$firstVideo = ArtworkVideo::get()->filter(array("ParentID" => $this->ID))->First();
 			
 			if ($firstVideo){
-				echo $firstVideo->Title;
+				// echo $firstVideo->Title;
 				Director::redirect($firstVideo->URLSegment."/");
 			}else{
-				echo "SDDSGGSD";
+				// echo "SDDSGGSD";
 				Director::redirect("home/");
 				
 			}
@@ -96,10 +96,10 @@ class ArtworkPiece_Controller extends Page_Controller {
 	
 	public function relatedPieces(){
 		
-		$relatedContainer = DataObject::get_one("RelatedWorksHolder", "ParentID =".$this->ID);
+		$relatedContainer = RelatedWorksHolder::get()->filter(array("ParentID" => $this->ID))->First();
 	
 		if($relatedContainer){
-			$set = DataObject::get("ArtworkImage", "ParentID = ".$relatedContainer->ID);
+			$set = ArtworkImage::get()->filter(array("ParentID" => $relatedContainer->ID));
 			return $set;	
 		}else{
 			return null;	
@@ -107,14 +107,14 @@ class ArtworkPiece_Controller extends Page_Controller {
 	}
 	
 	public function carousels(){
-		$set = DataObject::get("Carousel", "ParentID = ".$this->ID);
+		$set = Carousel::get()->filter(array("ParentID" => $this->ID));
 		
 		return $set;
 		
 	}
 	
 	public function videos(){
-		$set = DataObject::get("ArtworkVideo", "ParentID = ".$this->ID);
+		$set = ArtworkVideo::get()->filter(array("ParentID" => $this->ID));
 		
 		return $set;
 		
@@ -122,10 +122,10 @@ class ArtworkPiece_Controller extends Page_Controller {
 	
 	public function artworkImages($limit=0){
 		
-		$artworkImageContainer = DataObject::get_one("ArtworkImageHolder", "ParentID =".$this->ID." and Status = 'Published'");
+		$artworkImageContainer = ArtworkImageHolder::get()->filter(array("ParentID" => $this->ID))->First();
 	
 		if($artworkImageContainer){
-			$set = DataObject::get("ArtworkImage", "ParentID = ".$artworkImageContainer->ID,null,null,$limit);
+			$set = ArtworkImage::get()->filter(array("ParentID" => $artworkImageContainer->ID))->limit($limit);
 			return $set;	
 		}else{
 			return null;	

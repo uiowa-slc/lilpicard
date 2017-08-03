@@ -2,18 +2,18 @@
 
 class RelatedWorksHolder extends SiteTree {
 	
-	public static $db = array(
+	private static $db = array(
 	
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 		
 	);
 	
-	public static $allowed_children = array("ArtworkImage", "ArtworkPiece");
+	private static $allowed_children = array("ArtworkImage", "ArtworkPiece");
 										   
 	
-   function getCMSFields() {
+   public function getCMSFields() {
 	   $fields = parent::getCMSFields();
 	   return $fields;
    }
