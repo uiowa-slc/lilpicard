@@ -1,7 +1,9 @@
 <div id="left">
 <div id="main-carousel-container">
 
-		<div id="video">The player will show in this paragraph</div>
+		<div id="video">
+
+		<video src="$Video.URL" poster="$Image.URL" controls></video></div>
 	</div>
 
 <div id="content-container" class="typography">
@@ -70,15 +72,7 @@
 	
 	
 	<% end_if %>
-<script type='text/javascript' src='{$BaseHref}/mysite/jwplayer/swfobject.js'></script>
-		
-		<script type='text/javascript'>
-		var s1 = new SWFObject('{$BaseHref}/mysite/jwplayer/player.swf','player','300','300','9');
-		s1.addParam('allowfullscreen','true');
-		s1.addParam('allowscriptaccess','always');
-		s1.addParam('flashvars','file=$Video.URL');
-		s1.write('video');
-		</script> 
+
 		</div>
 <div id="right">
 	<% include Search %>
