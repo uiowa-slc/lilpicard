@@ -84,11 +84,11 @@ class ArtworkPiece_Controller extends Page_Controller {
 			$firstVideo = ArtworkVideo::get()->filter(array("ParentID" => $this->ID))->First();
 			
 			if ($firstVideo){
-				// echo $firstVideo->Title;
-				Director::redirect($firstVideo->URLSegment."/");
+		
+				$this->redirect($firstVideo->URLSegment."/");
 			}else{
-				// echo "SDDSGGSD";
-				Director::redirect("home/");
+	
+				$this->redirect("home/");
 				
 			}
 		}
