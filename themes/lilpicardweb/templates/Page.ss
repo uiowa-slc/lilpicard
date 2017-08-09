@@ -186,8 +186,11 @@ $('input#id_search').bind('keyup', function() {
 });
 
 function buttons(current) {
-	
-var imgs = document.getElementById("externalControl").getElementsByTagName("img");
+var exControl = document.getElementById("externalControl");
+if(exControl){
+	var imgs = document.getElementById("externalControl").getElementsByTagName("img");
+}
+
 
 if(imgs){
 
