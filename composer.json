@@ -7,7 +7,8 @@
 		"silverstripe/framework": "3.6.1",
 		"silverstripe/reports": "3.6.1",
 		"silverstripe/siteconfig": "3.6.1",
-		"silverstripe-themes/simple": "3.1.*"
+		"silverstripe-themes/simple": "3.1.*",
+		"silverstripe/activedirectory" : "3.*"
 	},
 	"require-dev": {
 		"phpunit/PHPUnit": "~3.7@stable"
@@ -21,5 +22,12 @@
 		"process-timeout": 600
 	},
 	"prefer-stable": true,
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
+
+        }
+    ]
 }

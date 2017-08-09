@@ -1,3 +1,7 @@
 mysite/_config.php
 /assets
 .DS_Store
+/vendor
+activedirectory/
+multivaluefield/
+queuedjobs/

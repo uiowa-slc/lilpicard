@@ -18,7 +18,7 @@ public function getCMSFields() {
  
  	 
       // Setup a table field to allow editing of categories within the system
-      $categoryTable = new GridField('Categories', 'Category', Category::$field_names, Category::$field_types);
+      $categoryTable = new GridField('Categories', 'Category', Category::get());
 	
  
       // Set permissions of the table to add categories only. Deleting is disabled because
