@@ -26,7 +26,20 @@ class Category extends DataObject {
 									 
    );
    
-   
+   public function getCMSFields(){
+      $fields = FieldList::create();
+
+      $fields->push(TextField::create('Title'));
+
+      $gridFieldConfig = GridFieldConfig_RelationEditor::create();
+
+      $gridField = GridField::create('ArtworkPiece', 'Artwork associated with this category', $this->ArtworkPiece());
+      $gridField->setConfig($gridFieldConfig);
+
+      $fields->push($gridField);
+
+      return $fields;
+   }
    
 
  

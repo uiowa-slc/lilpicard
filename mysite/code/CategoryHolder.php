@@ -11,14 +11,12 @@ class CategoryHolder extends SiteTree {
    
 public function getCMSFields() {
    $fields = parent::getCMSFields();
- 	
-	$fields->removeFieldFromTab("Root.Content","Main");
-	$fields->removeFieldFromTab("Root.Content","Metadata");
- 	$fields->addFieldToTab("Root.ManageCategories", new TextField("Title", "Title"));
- 
- 	 
+   $fields->removeByName('Content');
+ 	    $catConfig = GridFieldConfig_RecordEditor::create();
       // Setup a table field to allow editing of categories within the system
       $categoryTable = new GridField('Categories', 'Category', Category::get());
+
+      $categoryTable->setConfig($catConfig);
 	
  
       // Set permissions of the table to add categories only. Deleting is disabled because
@@ -27,7 +25,7 @@ public function getCMSFields() {
       //$categoryTable->setPermissions(array('add'));
  
       // Add the table field to the tab
-      $fields->addFieldToTab('Root.ManageCategories', $categoryTable);
+      $fields->addFieldToTab('Root.Main', $categoryTable);
 	
 	  return $fields;
 }
