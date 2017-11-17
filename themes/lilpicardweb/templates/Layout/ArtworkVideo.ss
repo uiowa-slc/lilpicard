@@ -3,7 +3,7 @@
 
 		<div id="video">
 
-		<video src="$Video.URL" poster="$Image.SetWidth(660).URL" controls></video></div>
+		<video src="$Video.URL" poster="$Image.SetWidth(660).URL" preload="none" controls></video></div>
 	</div>
 
 <div id="content-container" class="typography">

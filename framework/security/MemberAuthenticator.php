@@ -47,11 +47,11 @@ class MemberAuthenticator extends Authenticator {
 		}
 
 		// Check default login (see Security::setDefaultAdmin())
-		$asDefaultAdmin = $email === Security::default_admin_username();
+		$asDefaultAdmin = Security::has_default_admin() && $email === Security::default_admin_username();
 		if($asDefaultAdmin) {
 			// If logging is as default admin, ensure record is setup correctly
 			$member = Member::default_admin();
-			$success = !$member->isLockedOut() && Security::check_default_admin($email, $data['Password']);
+			$success = Security::check_default_admin($email, $data['Password']) && $member && !$member->isLockedOut();
 			//protect against failed login
 			if($success) {
 				return $member;
@@ -150,6 +150,10 @@ class MemberAuthenticator extends Authenticator {
 	 * @see Security::setDefaultAdmin()
 	 */
 	public static function authenticate($data, Form $form = null) {
+		// minimum execution time for authenticating a member
+		$minExecTime = LoginForm::config()->min_auth_time / 1000;
+		$startTime = microtime(true);
+
 		// Find authenticated member
 		$member = static::authenticate_member($data, $form, $success);
 
@@ -161,13 +165,19 @@ class MemberAuthenticator extends Authenticator {
 		// when we can rehash passwords to a different hashing algorithm,
 		// bulk-migration doesn't work due to the nature of hashing.
 		// See PasswordEncryptor_LegacyPHPHash class.
-		if($success && $member && isset(self::$migrate_legacy_hashes[$member->PasswordEncryption])) {
+		$migrateLegacyHashes = self::config()->migrate_legacy_hashes;
+		if($success && $member && isset($migrateLegacyHashes[$member->PasswordEncryption])) {
 			$member->Password = $data['Password'];
-			$member->PasswordEncryption = self::$migrate_legacy_hashes[$member->PasswordEncryption];
+			$member->PasswordEncryption = $migrateLegacyHashes[$member->PasswordEncryption];
 			$member->write();
 		}
 
 		if($success) Session::clear('BackURL');
+
+		$waitFor = $minExecTime - (microtime(true) - $startTime);
+		if ($waitFor > 0) {
+			usleep($waitFor * 1000000);
+		}
 
 		return $success ? $member : null;
 	}
@@ -178,14 +188,18 @@ class MemberAuthenticator extends Authenticator {
 	 *
 	 * @param Controller The parent controller, necessary to create the
 	 *                   appropriate form action tag
-	 * @return Form Returns the login form to use with this authentication
+	 * @return MemberLoginForm Returns the login form to use with this authentication
 	 *              method
 	 */
 	public static function get_login_form(Controller $controller) {
 		return MemberLoginForm::create($controller, "LoginForm");
 	}
 
-	public static function get_cms_login_form(\Controller $controller) {
+	/**
+	 * @param Controller $controller
+	 * @return CMSMemberLoginForm
+	 */
+	public static function get_cms_login_form(Controller $controller) {
 		return CMSMemberLoginForm::create($controller, "LoginForm");
 	}
 

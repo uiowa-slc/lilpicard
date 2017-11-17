@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "adbedb800b334c6fd18a18271a0dfad5",
+    "content-hash": "f8b0e4b88a9a8e8f3e00371f41cbf81d",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -207,6 +207,83 @@
             "time": "2015-01-10T01:09:28+00:00"
         },
         {
+            "name": "md/division-analytics",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics.git",
+                "reference": "096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/division-analytics/zipball/096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3",
+                "reference": "096f6fb83a8b947f7a8e5d795f5ea70d7c10b1c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "silverstripe/cms": "3.6.*@stable",
+                "silverstripe/framework": "3.6.*@stable"
+            },
+            "type": "silverstripe-module",
+            "description": "The University of Iowa Division of Student Life Analytics",
+            "support": {
+                "source": "https://github.com/StudentLifeMarketingAndDesign/division-analytics/tree/master",
+                "issues": "https://github.com/StudentLifeMarketingAndDesign/division-analytics/issues"
+            },
+            "time": "2017-10-26 17:44:03"
+        },
+        {
+            "name": "mustangostang/spyc",
+            "version": "0.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mustangostang/spyc.git",
+                "reference": "23c35ae854d835f2d7bcc3e3ad743d7e57a8c14d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mustangostang/spyc/zipball/23c35ae854d835f2d7bcc3e3ad743d7e57a8c14d",
+                "reference": "23c35ae854d835f2d7bcc3e3ad743d7e57a8c14d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.3.*@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Spyc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mustangostang",
+                    "email": "vlad.andersen@gmail.com"
+                }
+            ],
+            "description": "A simple YAML loader/dumper class for PHP",
+            "homepage": "https://github.com/mustangostang/spyc/",
+            "keywords": [
+                "spyc",
+                "yaml",
+                "yml"
+            ],
+            "time": "2017-02-24T16:06:33+00:00"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v0.9.5",
             "source": {
@@ -253,19 +330,20 @@
         },
         {
             "name": "onelogin/php-saml",
-            "version": "2.11.0",
+            "version": "v2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/onelogin/php-saml.git",
-                "reference": "818d6ee07e3797fd7e4006bff01bd2abc295cb65"
+                "reference": "9416fa739cff88ffcc472967cec048a774b97e0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/onelogin/php-saml/zipball/818d6ee07e3797fd7e4006bff01bd2abc295cb65",
-                "reference": "818d6ee07e3797fd7e4006bff01bd2abc295cb65",
+                "url": "https://api.github.com/repos/onelogin/php-saml/zipball/9416fa739cff88ffcc472967cec048a774b97e0f",
+                "reference": "9416fa739cff88ffcc472967cec048a774b97e0f",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
                 "ext-dom": "*",
                 "ext-mcrypt": "*",
                 "ext-openssl": "*",
@@ -280,9 +358,7 @@
                 "squizlabs/php_codesniffer": "2.9.0"
             },
             "suggest": {
-                "ext-gettext": "Install gettext and php5-gettext libs to handle translations",
-                "ext-mcrypt": "Install mcrypt and php5-mcrypt libs in order to support encryption",
-                "lib-openssl": "Install openssl lib in order to handle with x509 certs (require to support sign and encryption)"
+                "ext-gettext": "Install gettext and php5-gettext libs to handle translations"
             },
             "type": "library",
             "autoload": {
@@ -297,13 +373,13 @@
                 "MIT"
             ],
             "description": "OneLogin PHP SAML Toolkit",
-            "homepage": "https://onelogin.zendesk.com/hc/en-us/sections/200245634-SAML-Toolkits",
+            "homepage": "https://developers.onelogin.com/saml/php",
             "keywords": [
                 "SAML2",
                 "onelogin",
                 "saml"
             ],
-            "time": "2017-07-21T20:16:31+00:00"
+            "time": "2017-11-06T17:44:03+00:00"
         },
         {
             "name": "ramsey/array_column",
@@ -388,26 +464,26 @@
         },
         {
             "name": "silverstripe/activedirectory",
-            "version": "3.0.4.4",
+            "version": "3.1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory.git",
-                "reference": "5cc1ea6d45a9bdcd7e18eb8ac72f4981e61f4c5c"
+                "reference": "f167dc593b4c462f5e68f7b7ef828a69ea345dc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-activedirectory/zipball/5cc1ea6d45a9bdcd7e18eb8ac72f4981e61f4c5c",
-                "reference": "5cc1ea6d45a9bdcd7e18eb8ac72f4981e61f4c5c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-activedirectory/zipball/f167dc593b4c462f5e68f7b7ef828a69ea345dc5",
+                "reference": "f167dc593b4c462f5e68f7b7ef828a69ea345dc5",
                 "shasum": ""
             },
             "require": {
                 "onelogin/php-saml": "^2.10.7",
                 "php": ">=5.4",
                 "silverstripe/framework": "~3.1",
-                "silverstripe/queuedjobs": "~2.6@stable",
-                "zendframework/zend-authentication": "2.5.3",
-                "zendframework/zend-ldap": "2.8.0",
-                "zendframework/zend-session": "2.7.4"
+                "symbiote/silverstripe-queuedjobs": "^3",
+                "zendframework/zend-authentication": "^2.5.1",
+                "zendframework/zend-ldap": "^2.5.1",
+                "zendframework/zend-session": "^2.5.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.8"
@@ -442,22 +518,22 @@
                 "sso"
             ],
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory/tree/3.0.4.4"
+                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory/tree/3"
             },
-            "time": "2017-07-11T18:03:07+00:00"
+            "time": "2017-11-10T15:11:36+00:00"
         },
         {
             "name": "silverstripe/cms",
-            "version": "3.6.1",
+            "version": "3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "05bb2fef1b246bfeb47d6dd0f9e19074a4135b34"
+                "reference": "a308ab327bf6bcc9a3d1f1cd36cffc3850e014b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/05bb2fef1b246bfeb47d6dd0f9e19074a4135b34",
-                "reference": "05bb2fef1b246bfeb47d6dd0f9e19074a4135b34",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/a308ab327bf6bcc9a3d1f1cd36cffc3850e014b5",
+                "reference": "a308ab327bf6bcc9a3d1f1cd36cffc3850e014b5",
                 "shasum": ""
             },
             "require": {
@@ -498,24 +574,25 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2017-06-15T11:50:49+00:00"
+            "time": "2017-08-24T12:14:22+00:00"
         },
         {
             "name": "silverstripe/framework",
-            "version": "3.6.1",
+            "version": "3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "ddff7c5dad117e49a40a3cfe1c16db84fd9b5016"
+                "reference": "3f5ddc7d003920a3f4bd65a33ce1150fbe4ee60e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/ddff7c5dad117e49a40a3cfe1c16db84fd9b5016",
-                "reference": "ddff7c5dad117e49a40a3cfe1c16db84fd9b5016",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/3f5ddc7d003920a3f4bd65a33ce1150fbe4ee60e",
+                "reference": "3f5ddc7d003920a3f4bd65a33ce1150fbe4ee60e",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "~1.0",
+                "mustangostang/spyc": "^0.6.2",
                 "php": ">= 5.3.3, <7.2"
             },
             "require-dev": {
@@ -552,105 +629,20 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2017-06-27T11:48:16+00:00"
-        },
-        {
-            "name": "silverstripe/multivaluefield",
-            "version": "2.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symbiote/silverstripe-multivaluefield.git",
-                "reference": "81b0a152ae022cfcd323cc0a274e588376d12940"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-multivaluefield/zipball/81b0a152ae022cfcd323cc0a274e588376d12940",
-                "reference": "81b0a152ae022cfcd323cc0a274e588376d12940",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "multivaluefield"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Marcus Nyeholt",
-                    "email": "marcus@silverstripe.com.au"
-                }
-            ],
-            "description": "A DB field + form fields for storing multiple values in a single property (serialized).",
-            "keywords": [
-                "dbfield",
-                "formfield",
-                "silverstripe"
-            ],
-            "abandoned": "symbiote/silverstripe-multivaluefield",
-            "time": "2017-06-30T08:04:01+00:00"
-        },
-        {
-            "name": "silverstripe/queuedjobs",
-            "version": "2.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symbiote/silverstripe-queuedjobs.git",
-                "reference": "4262e039f55030aaf3b0c5e23723574a583ed2ed"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/4262e039f55030aaf3b0c5e23723574a583ed2ed",
-                "reference": "4262e039f55030aaf3b0c5e23723574a583ed2ed",
-                "shasum": ""
-            },
-            "require": {
-                "asyncphp/doorman": "~1.2",
-                "silverstripe/framework": "~3.1",
-                "silverstripe/multivaluefield": "~2.0"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "queuedjobs"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Marcus Nyeholt",
-                    "email": "marcus@silverstripe.com.au"
-                },
-                {
-                    "name": "Damian Mooyman",
-                    "email": "damian@silverstripe.com"
-                }
-            ],
-            "description": "A framework for defining and running background jobs in a queued manner",
-            "keywords": [
-                "jobs",
-                "silverstripe"
-            ],
-            "abandoned": "symbiote/silverstripe-queuedjobs",
-            "time": "2017-06-30T11:06:23+00:00"
+            "time": "2017-09-28T16:05:53+00:00"
         },
         {
             "name": "silverstripe/reports",
-            "version": "3.6.1",
+            "version": "3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-reports.git",
-                "reference": "2e29bf27fee9a465fcc4744aad656c3e9093167f"
+                "reference": "e8fef7ebdd026794beae64d76debba91d5d88036"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/2e29bf27fee9a465fcc4744aad656c3e9093167f",
-                "reference": "2e29bf27fee9a465fcc4744aad656c3e9093167f",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/e8fef7ebdd026794beae64d76debba91d5d88036",
+                "reference": "e8fef7ebdd026794beae64d76debba91d5d88036",
                 "shasum": ""
             },
             "require": {
@@ -687,20 +679,20 @@
                 "reports",
                 "silverstripe"
             ],
-            "time": "2017-05-30T23:06:19+00:00"
+            "time": "2017-07-26T09:45:00+00:00"
         },
         {
             "name": "silverstripe/siteconfig",
-            "version": "3.6.1",
+            "version": "3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-siteconfig.git",
-                "reference": "8e03d7b7b86d72b5161682be25c052dd3f6db54e"
+                "reference": "4e352fd0e86ffde1530af2dafcedbcb7dd3dce42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/8e03d7b7b86d72b5161682be25c052dd3f6db54e",
-                "reference": "8e03d7b7b86d72b5161682be25c052dd3f6db54e",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/4e352fd0e86ffde1530af2dafcedbcb7dd3dce42",
+                "reference": "4e352fd0e86ffde1530af2dafcedbcb7dd3dce42",
                 "shasum": ""
             },
             "require": {
@@ -730,7 +722,102 @@
                 "silverstripe",
                 "siteconfig"
             ],
-            "time": "2017-06-15T11:52:21+00:00"
+            "time": "2017-07-26T10:33:54+00:00"
+        },
+        {
+            "name": "symbiote/silverstripe-multivaluefield",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symbiote/silverstripe-multivaluefield.git",
+                "reference": "96f7116fb0ab06c8cd1023c0958b098988baf8c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-multivaluefield/zipball/96f7116fb0ab06c8cd1023c0958b098988baf8c2",
+                "reference": "96f7116fb0ab06c8cd1023c0958b098988baf8c2",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "replace": {
+                "silverstripe/multivaluefield": "self.version"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "multivaluefield",
+                "branch-alias": {
+                    "3.x-dev": "3.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Nyeholt",
+                    "email": "marcus@symbiote.com.au"
+                }
+            ],
+            "description": "A DB field + form fields for storing multiple values in a single property (serialized).",
+            "keywords": [
+                "dbfield",
+                "formfield",
+                "silverstripe"
+            ],
+            "time": "2017-08-28T02:52:17+00:00"
+        },
+        {
+            "name": "symbiote/silverstripe-queuedjobs",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symbiote/silverstripe-queuedjobs.git",
+                "reference": "0f5928c925db4174fdd3743deaf3a1a55962b6b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-queuedjobs/zipball/0f5928c925db4174fdd3743deaf3a1a55962b6b8",
+                "reference": "0f5928c925db4174fdd3743deaf3a1a55962b6b8",
+                "shasum": ""
+            },
+            "require": {
+                "asyncphp/doorman": "^1.2",
+                "silverstripe/framework": "^3.1",
+                "symbiote/silverstripe-multivaluefield": "^3.0"
+            },
+            "replace": {
+                "silverstripe/queuedjobs": "self.version"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "queuedjobs",
+                "branch-alias": {
+                    "3.x-dev": "3.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Mooyman",
+                    "email": "damian@silverstripe.com"
+                },
+                {
+                    "name": "Marcus Nyeholt",
+                    "email": "marcus@symbiote.com.au"
+                }
+            ],
+            "description": "A framework for defining and running background jobs in a queued manner",
+            "keywords": [
+                "jobs",
+                "silverstripe"
+            ],
+            "time": "2017-08-28T03:02:54+00:00"
         },
         {
             "name": "zendframework/zend-authentication",
@@ -1386,16 +1473,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.26",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5"
+                "reference": "d819bf267e901727141fe828ae888486fd21236e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
-                "reference": "4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d819bf267e901727141fe828ae888486fd21236e",
+                "reference": "d819bf267e901727141fe828ae888486fd21236e",
                 "shasum": ""
             },
             "require": {
@@ -1431,7 +1518,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T20:52:29+00:00"
+            "time": "2017-11-05T15:25:56+00:00"
         }
     ],
     "aliases": [],
