@@ -104,6 +104,7 @@ $(function() {
 
 </head>
 <body>
+<% include UiowaBar %>
 <div id="body-wrapper">
 
 	<div id="header"> <a href="$BaseHref"><img src="$ThemeDir/images/lilpicardlogo.png" id="lilpicardlogo"/></a>
@@ -134,7 +135,7 @@ $(function() {
 <div class="clear"></div>
 <div id="footer" class="typography">
 
-<a href="http://uima.uiowa.edu"><img src="$ThemeDir/images/uimalogo.png" id="uima-logo" /></a><a href="http://www.lib.uiowa.edu/spec-coll/MSC/ToMsC850/MsC817/MsC817_picardlil.htm" target="_blank"><img src="$ThemeDir/images/uilibrarieslogo.png" id="uilibraries-logo" /></a>
+<a href="http://uima.uiowa.edu"><img src="$ThemeDir/images/UISMA_lockup_black.png" id="uima-logo" height="50" /></a><a href="http://www.lib.uiowa.edu/spec-coll/MSC/ToMsC850/MsC817/MsC817_picardlil.htm" target="_blank"><img src="$ThemeDir/images/uilibrarieslogo.png" id="uilibraries-logo" /></a>
 
 <p>1375 Highway One West | 1840 Studio Arts Building | Iowa City, Iowa 52242<br />Telephone: (319) 335-1727 | Fax: (319) 335 3677| <a href="mailto:uima@uiowa.edu">uima@uiowa.edu</a></p>
 <div style="clear: both;"></div>

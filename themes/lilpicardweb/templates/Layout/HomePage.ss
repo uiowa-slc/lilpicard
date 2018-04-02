@@ -10,7 +10,7 @@
 	$Column1 </div>
 	<div class="homepage-column-right typography"> 
 	<h2>Lil Picard and Counterculture New York</h2>
-	<p>Organized by the University of Iowa Museum of Art Kathleen A. Edwards, Chief Curator</p>
+	<p>Organized by the University of Iowa Stanley Museum of Art Kathleen A. Edwards, Chief Curator</p>
 	
 	<div class="schedule">
 	<h3>April 20 - July 10, 2010</h3>
@@ -23,7 +23,7 @@
 	</div>
 	<div class="schedule">
 	<h3>Feb. 24 - May 27, 2011</h3>
-	<p>University of Iowa Museum of Art<br />
+	<p>University of Iowa Stanley Museum of Art<br />
 	Black Box Theater,<br />
 	Iowa Memorial Union<br />
 	125 North Madison Street<br />
