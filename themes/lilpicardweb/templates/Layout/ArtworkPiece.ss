@@ -6,7 +6,7 @@
 		<% if artworkImages %>
 		<ul >
 			<% loop artworkImages %>
-			<li><a href="$Image.URL" class="thickbox" title="$Content.ATT" rel="carousel"><% with Image %><% with PaddedImage(292,300) %><img src="$URL" alt="$Title.ATT" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
+			<li><a href="$Image.URL" class="thickbox" title="$Content.ATT" rel="carousel"><% with Image %><% with Pad(292,300) %><img src="$URL" alt="$Title.ATT" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
 			<% end_loop %>
 		</ul>
 		<!--			<a class="prev" href="#">previous</a> <a class="next" href="#">next</a> <br /> -->
@@ -35,12 +35,12 @@
 	<div id="carousels" class="typography">
 		<ul>
 			<% loop videos %>
-				<li><a href="{$Link}#{$ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
+				<li><a href="{$Link}#{$ID}"><% with Image %><% with Pad(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
 			<% end_loop %>
 			
 
 			<% loop carousels %>
-				<li><a href="{$Link}#{$Parent.ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a> 
+				<li><a href="{$Link}#{$Parent.ID}"><% with Image %><% with Pad(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a> 
 				<a href="{$Link}#{$Parent.ID}">$Title</a></li>
 		
 			 <% end_loop %>
@@ -52,7 +52,7 @@
 		<div id="carousels" class="typography">
 			<ul>
 				<% loop videos %>
-				<li><a href="{$Link}#{$ID}"><% with Image %><% with PaddedImage(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
+				<li><a href="{$Link}#{$ID}"><% with Image %><% with Pad(150, 113) %><img src="$URL" /><% end_with %><% end_with %></a><a href="{$Link}#{$Parent.ID}">$Title</a></li>
 				<% end_loop %>
 			</ul>
 		</div>

@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\CMS\Controllers\ContentController;
+
 class RelatedWorksHolder extends SiteTree {
 	
 	private static $db = array(
@@ -20,13 +23,5 @@ class RelatedWorksHolder extends SiteTree {
 	
 }
 
-class RelatedWorksHolder_Controller extends ContentController {
-	
-	public function init() {
-		parent::init();
-	}
-	
-	
-}
 
 ?>

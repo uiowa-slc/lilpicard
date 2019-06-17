@@ -1,4 +1,8 @@
 <?php
+
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\CMS\Model\SiteTree;
  
 class CategoryHolder extends SiteTree {
  

@@ -11,7 +11,7 @@
 			<% end_if %>
 			
 			
-			<% with ThumbnailImage %><% with CroppedImage(50,50) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
+			<% with ThumbnailImage %><% with Fill(50,50) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
 			<% end_loop %>
 		</ul>
 	</div>

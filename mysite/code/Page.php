@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\CMS\Model\SiteTree;
+
+
 class Page extends SiteTree {
 	
 	private static $db = array(
@@ -10,20 +13,7 @@ class Page extends SiteTree {
 	
 }
 
-class Page_Controller extends ContentController {
-	
-	public function init() {
-		parent::init();
-	}
-	
-	public function ArtworkPieces(){
-		
-		$set = ArtworkPiece::get();
-		return $set;
-		
-		
-	}
-}
+
 
 
 ?>

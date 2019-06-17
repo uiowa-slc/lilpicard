@@ -1,5 +1,15 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\CMS\Model\SiteTree;
+
+
 class ArtworkPiece extends SiteTree {
 	
 	private static $db = array(
@@ -14,12 +24,12 @@ class ArtworkPiece extends SiteTree {
 	);
 	
 	private static $has_one = array(
-		"ThumbnailImage" => "Image"
+		"ThumbnailImage" => Image::class
 	
 	);
 	
    private static $field_types = array(
-      'Title' => 'TextField'
+      'Title' => TextField::class
    );
  
    private static $field_names = array(
@@ -60,7 +70,7 @@ class ArtworkPiece extends SiteTree {
 */
 		
 		
-		$fields->addFieldToTab("Root.Main", new TextField("Date", "Date"));
+		$fields->addFieldToTab("Root.Main", new TextField(DBDate::class, DBDate::class));
 		$fields->addFieldToTab("Root.Main", new TextField("Year", "Artwork Year (for sorting purposes)"));
 		$fields->addFieldToTab("Root.Main", new TextField("Medium", "Short Description"));
 		/*$fields->addFieldToTab("Root.Main", new TextField("Size", "Size"));
@@ -75,64 +85,3 @@ class ArtworkPiece extends SiteTree {
 	
 }
 
-class ArtworkPiece_Controller extends Page_Controller {
-	
-	public function init() {
-		parent::init();
-
-		if($this->VideosOnly){
-			$firstVideo = ArtworkVideo::get()->filter(array("ParentID" => $this->ID))->First();
-			
-			if ($firstVideo){
-		
-				$this->redirect($firstVideo->URLSegment."/");
-			}else{
-	
-				$this->redirect("home/");
-				
-			}
-		}
-	}
-	
-	public function relatedPieces(){
-		
-		$relatedContainer = RelatedWorksHolder::get()->filter(array("ParentID" => $this->ID))->First();
-	
-		if($relatedContainer){
-			$set = ArtworkImage::get()->filter(array("ParentID" => $relatedContainer->ID));
-			return $set;	
-		}else{
-			return null;	
-		}
-	}
-	
-	public function carousels(){
-		$set = Carousel::get()->filter(array("ParentID" => $this->ID));
-		
-		return $set;
-		
-	}
-	
-	public function videos(){
-		$set = ArtworkVideo::get()->filter(array("ParentID" => $this->ID));
-		
-		return $set;
-		
-	}
-	
-	public function artworkImages($limit=0){
-		
-		$artworkImageContainer = ArtworkImageHolder::get()->filter(array("ParentID" => $this->ID))->First();
-	
-		if($artworkImageContainer){
-			$set = ArtworkImage::get()->filter(array("ParentID" => $artworkImageContainer->ID))->limit($limit);
-			return $set;	
-		}else{
-			return null;	
-		}
-	}
-	
-	
-}
-
-?>

@@ -4,32 +4,32 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<link rel="stylesheet" type="text/css" href="{$BaseHref}{$ThemeDir}/css/reset-min.css">
-<link rel="stylesheet" type="text/css" href="{$BaseHref}{$ThemeDir}/css/layout.css">
-<link rel="stylesheet" type="text/css" href="{$BaseHref}{$ThemeDir}/css/typography.css">
+<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/reset-min.css">
+<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/layout.css">
+<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/typography.css">
 <title>
-<% if MetaTitle %>
-$MetaTitle
+<% if ClassName == "HomePage" %>
+$SiteConfig.Title - Stanley Museum of Art
 <% else %>
-$Title - Lil Picard
+$Title - $SiteConfig.Title - Stanley Museum of Art
 <% end_if %>
 
 </title>
-<% with Page(home) %>
+
 $MetaTags(false)
-<% end_with %>
+
 <% base_tag %>
 
-<script type="text/javascript" src="{$BaseHref}/mysite/javascript/jquery.min.js"></script>
-<script type="text/javascript" src="{$BaseHref}/mysite/javascript/jquery.quicksearch.js"></script>
-<script type="text/javascript" src="{$BaseHref}/mysite/javascript/jquery-ui/js/jquery-ui-1.8rc3.custom.min.js"></script>
-<script type="text/javascript" src="{$BaseHref}/mysite/javascript/jcarousellite_1.0.1.min.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/javascript/jquery.min.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/javascript/jquery.quicksearch.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/javascript/jquery-ui/js/jquery-ui-1.8rc3.custom.min.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/javascript/jcarousellite_1.0.1.min.js"></script>
 
-<script type="text/javascript" src="{$BaseHref}/mysite/javascript/fancybox/jquery.fancybox-1.2.1.js"></script>
-<script type="text/javascript" src="{$BaseHref}/mysite/javascript/jquery.uitablefilter.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/javascript/fancybox/jquery.fancybox-1.2.1.js"></script>
+<script type="text/javascript" src="{$ThemeDir}/javascript/jquery.uitablefilter.js"></script>
 
-<link type="text/css" href="{$BaseHref}/mysite/javascript/jquery-ui/css/ui-lightness/jquery-ui-1.8rc3.custom.css" rel="Stylesheet" />
-<link rel="stylesheet" type="text/css" href="{$BaseHref}/mysite/javascript/fancybox/jquery.fancybox.css" media="screen" />
+<link type="text/css" href="{$ThemeDir}/javascript/jquery-ui/css/ui-lightness/jquery-ui-1.8rc3.custom.css" rel="Stylesheet" />
+<link rel="stylesheet" type="text/css" href="{$ThemeDir}/javascript/fancybox/jquery.fancybox.css" media="screen" />
 
 <script type="text/javascript">
 $(function() {
@@ -110,7 +110,7 @@ $(function() {
 	<div id="header"> <a href="$BaseHref"><img src="$ThemeDir/images/lilpicardlogo.png" id="lilpicardlogo"/></a>
 	
 	<div id ="navigation">
-	<ul>
+	<ul role="navigation">
 		<% loop Menu(1) %>
 		<% if LinkOrSection = section %>
 		<li><img src="$ThemeDir/images/navigation_web/{$URLSegment}.png" /></li>
@@ -135,9 +135,9 @@ $(function() {
 <div class="clear"></div>
 <div id="footer" class="typography">
 
-<a href="http://uima.uiowa.edu"><img src="$ThemeDir/images/UISMA_lockup_black.png" id="uima-logo" height="50" /></a><a href="http://www.lib.uiowa.edu/spec-coll/MSC/ToMsC850/MsC817/MsC817_picardlil.htm" target="_blank"><img src="$ThemeDir/images/uilibrarieslogo.png" id="uilibraries-logo" /></a>
+<a href="http://stanleymuseum.uiowa.edu"><img src="$ThemeDir/images/UISMA_lockup_black.png" id="uima-logo" height="50" /></a><a href="http://www.lib.uiowa.edu/spec-coll/MSC/ToMsC850/MsC817/MsC817_picardlil.htm" target="_blank"><img src="$ThemeDir/images/uilibrarieslogo.png" id="uilibraries-logo" /></a>
 
-<p><a href="https://uima.uiowa.edu">University of Iowa Stanley Museum of Art</a><br /><a href="https://uima.uiowa.edu/visit/locations/" target="_blank">View museum locations</a><br />Telephone: (319) 335-1727 | Fax: (319) 335 3677| <a href="mailto:uima@uiowa.edu">uima@uiowa.edu</a></p>
+<p><a href="https://stanleymuseum.uiowa.edu">University of Iowa Stanley Museum of Art</a><br /><a href="https://stanleymuseum.uiowa.edu/visit/locations/" target="_blank">View museum locations</a><br />Telephone: (319) 335-1727 | Fax: (319) 335 3677| <a href="mailto:stanley-museum@uiowa.edu">stanley-museum@uiowa.edu</a></p>
 <div style="clear: both;"></div>
 </div>
 

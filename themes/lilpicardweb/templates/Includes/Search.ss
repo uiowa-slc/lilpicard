@@ -59,7 +59,7 @@ Fashion -->
 			<% loop ArtworkPieces %>
 			<% if Featured %>
 			<tr class="{$LinkOrSection}-results" id="result{$Pos}">
-				<td class="artwork-thumbnail"><a name="{$ID}" href="{$Link}#{$ID}"><% loop ThumbnailImage %><% with CroppedImage(50,50) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_loop %></a></td>
+				<td class="artwork-thumbnail"><a name="{$ID}" href="{$Link}#{$ID}"><% loop ThumbnailImage %><% with Fill(50,50) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_loop %></a></td>
 				<td class="result_info"><a href="{$Link}#{$ID}">$Title<% if Date %>, $Date <% end_if %></a>
 					<p>$Medium</p></td>
 					

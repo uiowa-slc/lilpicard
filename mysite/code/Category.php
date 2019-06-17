@@ -1,4 +1,10 @@
 <?php
+
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\ORM\DataObject;
  
 class Category extends DataObject {
  
@@ -10,7 +16,7 @@ class Category extends DataObject {
    // Used for TableField. These are the field types.
    // Refer to getCMSFields() on ArticleHolder for how it is used.
    private static $field_types = array(
-      'Title' => 'TextField'
+      'Title' => TextField::class
    );
  
    // Used for TableField. These are the field names.

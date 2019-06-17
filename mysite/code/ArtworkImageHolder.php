@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\CMS\Model\SiteTree;
+
+
 class ArtworkImageHolder extends SiteTree {
 	
 	private static $db = array(
@@ -7,7 +12,7 @@ class ArtworkImageHolder extends SiteTree {
 	);
 	
 	private static $has_one = array(
-		"Image" => "Image"
+		"Image" => Image::class
 		
 	);
 	
@@ -19,25 +24,11 @@ class ArtworkImageHolder extends SiteTree {
    
    public function getCMSFields() {
 	   $fields = parent::getCMSFields();
-	   	   $fields->addFieldToTab("Root.Main", new UploadField("Image", "Thumbnail Image"));
+	   	   $fields->addFieldToTab("Root.Main", new UploadField(Image::class, "Thumbnail Image"));
 	   return $fields;
    }
 	
 }
 
-class ArtworkImageHolder_Controller extends Page_Controller {
-	
-	public function init() {
-		parent::init();
-	}
-	
-	public function carousels(){
-		$set = Carousel::get()->filter(array("ParentID" => $this->ParentID));
-		return $set;
-		
-	}
-	
-	
-}
 
 ?>

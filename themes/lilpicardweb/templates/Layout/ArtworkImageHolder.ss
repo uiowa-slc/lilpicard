@@ -7,7 +7,7 @@
 
 		<ul >
 			<% loop Children %>
-			<li><a href="$Image.URL" class="thickbox" title="$Content.ATT"><% with Image %><% with PaddedImage(800,600) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
+			<li><a href="$Image.URL" class="thickbox" title="$Content.ATT"><% with Image %><% with Pad(800,600) %><img src="$URL" alt="$Title" height="$Height" width="$Width" /><% end_with %><% end_with %> </a></li>
 			<% end_loop %>
 		</ul>
 		<!--			<a class="prev" href="#">previous</a> <a class="next" href="#">next</a> <br /> -->
@@ -54,7 +54,7 @@
 		<ul>
 		<% if carousels %>
 			<% loop carousels %>
-				<li><% with Image %><% with PaddedImage(300, 225) %><img src="$URL" /><% end_with %><% end_with %> 
+				<li><% with Image %><% with Pad(300, 225) %><img src="$URL" /><% end_with %><% end_with %> 
 				<a href="$Link">$Title</a></li>
 			 <% end_loop %>
 		<% end_if %>

@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+
 class HomePageClickable extends Page {
 	
 	private static $db = array(
@@ -28,13 +30,6 @@ return $fields;
 	
 }
 
-class HomePageClickable_Controller extends Page_Controller {
-	
-	public function init() {
-		parent::init();
-	}
-	
-}
 
 
 ?>

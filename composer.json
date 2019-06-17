@@ -1,45 +1,57 @@
 {
-	"name": "silverstripe/installer",
-	"description": "The SilverStripe Framework Installer",
-	"require": {
-		"php": ">=5.3.3",
-		"silverstripe/cms": "3.6.*@stable",
-		"silverstripe/framework": "3.6.*@stable",
-		"silverstripe/reports": "*",
-		"silverstripe/siteconfig": "*",
-		"silverstripe-themes/simple": "*",
-		"silverstripe/activedirectory" : "3.*",
-		"md/division-analytics" : "1.*",
-		"md/uiowa-bar" : "*"
-	},
-	"require-dev": {
-		"phpunit/PHPUnit": "~3.7@stable"
-	},
-	"extra": {
-		"branch-alias": {
-			"3.x-dev": "3.6.x-dev"
-		}
-	},
-	"config": {
-		"process-timeout": 600
-	},
-	"prefer-stable": true,
-	"minimum-stability": "dev",
+    "name": "silverstripe/installer",
+    "description": "The SilverStripe Framework Installer",
+    "require": {
+        "php": ">=5.3.3",
+        "silverstripe/cms": "4.4.*@stable",
+        "silverstripe/framework": "4.4.*@stable",
+        "silverstripe/recipe-plugin": "*",
+        "silverstripe/recipe-cms": "*",
+        "silverstripe/reports": "*",
+        "silverstripe/siteconfig": "*",
+        "md/division-analytics": "1.*",
+        "md/saml": "dev-md",
+        "md/uiowa-bar": "*"
+    },
+    "extra": {
+        "resources-dir": "_resources",
+        "expose": [
+        	"themes/lilpicardweb/javascript",
+            "themes/lilpicardweb/css",
+            "themes/lilpicardweb/images"
+        ],
+        "project-files-installed": [
+            "app/.htaccess",
+            "app/_config.php",
+            "app/_config/mysite.yml",
+            "app/src/Page.php",
+            "app/src/PageController.php"
+        ],
+        "public-files-installed": [
+            ".htaccess",
+            "index.php",
+            "install-frameworkmissing.html",
+            "install.php",
+            "web.config"
+        ]
+    },
+    "config": {
+        "process-timeout": 600
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
-
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
         },
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics"
-
         },
-         {
+        {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar"
-
         }
     ]
 }

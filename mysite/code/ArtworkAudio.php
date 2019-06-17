@@ -22,12 +22,5 @@ class ArtworkAudio extends ArtworkVideo {
 	
 }
 
-class ArtworkAudio_Controller extends ArtworkVideo_Controller {
-	
-	public function init() {
-		parent::init();
-	}
-	
-}
 
 ?>
