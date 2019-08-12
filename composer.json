@@ -17,7 +17,7 @@
     "extra": {
         "resources-dir": "_resources",
         "expose": [
-        	"themes/lilpicardweb/javascript",
+            "themes/lilpicardweb/javascript",
             "themes/lilpicardweb/css",
             "themes/lilpicardweb/images"
         ],
@@ -41,18 +41,22 @@
     },
     "prefer-stable": true,
     "minimum-stability": "dev",
-    "repositories": [
-        {
+    "repositories": {
+        "0": {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
         },
-        {
+        "1": {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics"
         },
-        {
+        "2": {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar"
+        },
+        "repo-name": {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/deploy-helper"
         }
-    ]
+    }
 }
