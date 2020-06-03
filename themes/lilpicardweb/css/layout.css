@@ -1,187 +1,290 @@
 @charset "UTF-8";
 
 html {
-	
+
 		background: #212121;
 
 }
 
 body {
-	
 
-	
+
+
 }
-.uiowa-bar__sr-only {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  position: absolute !important;
+.search-form {
+    margin-bottom: 1em;
 }
 
-.uiowa-bar {
-  margin: 0 auto;
-  font-size: 11px;
-  font-family: sans-serif;
-  box-sizing: border-box;
-  padding: 0;
-  width: 100%;
-  position: relative;
-  height: 41px;
+.search-form input {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.uiowa-bar__wrapper {
-  background-color: #212121;
+
+#uiowa-bar {
+    background-color: #212121;
+    margin: 0 auto;
+    font-size: 11px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    padding: 7px 10px 2px;
+    width: 100%;
+    position: relative;
+    height: 41px;
 }
 
-.uiowa-bar__link {
-  color: #999999;
-  font-size: 12px;
-  margin: 10px 5px;
-  vertical-align: middle;
-  position: relative;
-}
-.uiowa-bar__link:after {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 100%;
-  max-width: 50px;
-  background-color: #FFCD00;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: all 0.125s ease-in;
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  display: inline-block;
-  max-width: 100%;
-  visibility: hidden;
-}
-.uiowa-bar__link:hover:after, .uiowa-bar__link:focus:after {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
+#uiowa-bar svg {
+    width: auto;
+    height: 27px;
+    fill: #FFCD00;
 }
 
-.uiowa-bar__wordmark {
-  width: auto;
-  height: 24px;
-  fill: #FFCD00;
-}
-
-.uiowa-bar__logo--dark-header {
-  fill: #FFCD00;
-}
-
-.uiowa-bar__logo--light-header {
-  fill: #000;
-}
-
-.uiowa-bar__logo--overlay {
-  fill: #FFCD00;
-}
-
-.uiowa-bar__wordmark-link {
-  display: block;
-  position: absolute;
-  top: 6px;
-  left: 25px;
-}
-
-.uiowa-bar__search-form {
-  margin-bottom: 0;
-  margin-top: 0;
-  display: block;
-  text-align: center;
-}
-@media (min-width: 600px) {
-  .uiowa-bar__search-form {
-    display: inline;
-  }
-}
-
-.uiowa-bar__form-container {
-  display: block;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-@media (min-width: 600px) {
-  .uiowa-bar__form-container {
-    display: inline;
-  }
-}
-
-.uiowa-bar__search {
-  margin-top: 3px;
-  position: absolute;
-  top: 6px;
-  right: 25px;
-}
-
-.uiowa-bar__menu-item {
-  display: inline;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 24px;
-}
-
-.uiowa-bar__links {
-  display: inline;
-}
-
-.uiowa-bar__links--overlay a {
-  color: #fff;
-}
-
-input[type="text"].uiowa-bar__search-input {
-  border-radius: 0;
-  height: auto;
-  padding: 4px;
-  border-width: 0px;
-  font-size: 1.1em;
-  background-color: #222;
-  display: inline;
-  width: 120px;
-  color: #FFF;
-}
-
-input[type="submit"].uiowa-bar__submit {
-  border: none;
-  line-height: normal;
-  margin-left: -3px;
-  padding: 4px 10px;
-  font-size: 1.1em;
-  font-weight: normal;
-  vertical-align: top;
-  background-color: #999999;
-  border-radius: 0;
-  color: #000;
-  display: inline-block;
-}
-
-@media (max-width: 600px) {
-  .uiowa-bar {
-    height: inherit;
-  }
-
-  .uiowa-bar__wordmark-link {
+#uiowa-bar #wordmark-link {
     display: block;
-    text-align: center;
-    position: static;
-    padding-bottom: 5px;
-  }
+    position: absolute;
+    top: 7px;
+    left: 15px;
+}
 
-  .uiowa-bar__search {
+#uiowa-bar #uiowa-search {
     margin-top: 3px;
-    position: static;
-  }
+    position: absolute;
+    top: 6px;
+    right: 25px;
 }
-@media (max-width: 600px) {
-  .uiowa-bar__links {
-    display: none;
-  }
+
+#uiowa-bar #uiowa-search div, #uiowa-bar #uiowa-search ul, #uiowa-bar #uiowa-search li, #uiowa-bar #uiowa-search form {
+    display: inline;
+    text-align: center;
+    margin: 0 auto;
 }
+
+#uiowa-bar #uiowa-search form .btn {
+    display: inline;
+    clear: none;
+}
+
+#uiowa-bar #uiowa-search .links {
+    display: inline;
+    margin-right: 20px;
+}
+
+#uiowa-bar #uiowa-search .links a {
+    color: #999999;
+    font-size: 1.2em;
+    vertical-align: middle;
+    font-weight: 400;
+    font-family: sans-serif;
+    margin-right: 10px;
+}
+
+#uiowa-bar #uiowa-search .form-group, #uiowa-bar #uiowa-search .form-item, #uiowa-bar #uiowa-search .search-form {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+
+#uiowa-bar #uiowa-search label {
+    color: #ffffff;
+    background-color: #000000;
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#uiowa-bar #uiowa-search .form-control, #uiowa-bar #uiowa-search #edit-search-terms {
+    border-radius: 0;
+    height: auto;
+    padding: 4px;
+    border-width: 0px;
+    font-size: 1.1em;
+    background-color: #222;
+    display: inline;
+    width: 120px;
+    color: #FFF;
+}
+
+#uiowa-bar #uiowa-search .form-control:focus, #uiowa-bar #uiowa-search #edit-search-terms:focus {
+    box-shadow: inset 0px 0px 0px 1px #999999;
+}
+
+#uiowa-bar #uiowa-search form .btn {
+    display: inline;
+    width: inherit;
+    border: 1px solid #999;
+}
+
+#uiowa-bar #uiowa-search #edit-search-terms::-webkit-input-placeholder {
+    color: #E8E8E8;
+}
+
+#uiowa-bar #uiowa-search #edit-search-terms::-moz-placeholder {
+    color: #E8E8E8;
+}
+
+#uiowa-bar #uiowa-search #edit-search-terms:-ms-input-placeholder {
+    color: #E8E8E8;
+}
+
+#uiowa-bar #uiowa-search #edit-search-terms:-moz-placeholder {
+    color: #E8E8E8;
+}
+
+#uiowa-bar #uiowa-search input#edit-submit-search {
+    border: none;
+    line-height: normal;
+    margin-left: -3px;
+    padding: 6px 10px;
+    font-size: 1.1em;
+    font-weight: normal;
+    vertical-align: top;
+    background-color: #999999;
+    border-radius: 0;
+    color: #000;
+}
+
+#uiowa-bar #uiowa-search input#edit-submit-search:hover, #uiowa-bar #uiowa-search input#edit-submit-search:focus {
+    background-color: #FFCD00;
+}
+
+#search-results .gsc-control-cse, #search-results .gsc-table-result {
+    font-family: inherit !important;
+}
+
+#search-results .gsc-control-cse table, #search-results .gsc-table-result table {
+    margin: 0;
+}
+
+#search-results .gsc-control-cse tbody tr, #search-results .gsc-table-result tbody tr {
+    border: 1px solid #FFFFFF;
+}
+
+#search-results .gsc-control-cse .gsc-table-result, #search-results .gsc-table-result .gsc-table-result {
+    margin-left: 8px;
+}
+
+#search-results .gsc-control-cse .gsc-input-box, #search-results .gsc-table-result .gsc-input-box {
+    height: auto;
+}
+
+#search-results .gsc-control-cse .cse .gsc-search-button input.gsc-search-button-v2, #search-results .gsc-table-result .cse .gsc-search-button input.gsc-search-button-v2, #search-results .gsc-control-cse input.gsc-search-button-v2, #search-results .gsc-table-result input.gsc-search-button-v2 {
+    height: auto;
+    width: auto;
+}
+
+#search-results .gsc-control-cse .gsc-selected-option-container, #search-results .gsc-table-result .gsc-selected-option-container {
+    height: auto;
+    width: auto !important;
+    max-width: 100%;
+}
+
+#search-results .gs-result .gs-title, #search-results .gs-result .gs-title * {
+    color: #222;
+}
+
+@media (max-width: 500px) {
+    #uiowa-bar {
+        height: inherit;
+    }
+
+    #uiowa-bar #wordmark-link {
+        display: block;
+        text-align: center;
+        position: static;
+        margin-bottom: 10px;
+    }
+
+    #uiowa-bar #uiowa-search {
+        margin-top: 3px;
+        position: static;
+    }
+
+    #uiowa-bar #uiowa-search .form-control, #uiowa-bar #uiowa-search #edit-search-terms {
+        width: 69%;
+        margin-left: 8%;
+    }
+
+    #uiowa-bar #uiowa-search form .btn {
+        width: 15%;
+        margin-right: 7%;
+    }
+}
+
+@media (max-width: 700px) {
+    #uiowa-bar #uiowa-search .links {
+        display: none;
+    }
+}
+
+#uiowa-bar-alert.uiowa-bar-alert {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 25px;
+    color: #1b1b1b;
+}
+
+#uiowa-bar-alert.uiowa-bar-alert:before {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 8px;
+}
+
+#uiowa-bar-alert .uiowa-bar-alert-title {
+    color: #1b1b1b;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+#uiowa-bar-alert .uiowa-bar-alert-content p {
+    margin-bottom: 5px;
+}
+
+#uiowa-bar-alert .uiowa-bar-alert-content a {
+    color: #005ea2;
+    text-decoration: underline;
+    border-bottom: 0;
+}
+
+#uiowa-bar-alert .uiowa-bar-alert-content a:hover, #uiowa-bar-alert .uiowa-bar-alert-content a:focus {
+    color: #1a4480;
+    text-decoration: none;
+    border-bottom: 0;
+}
+
+#uiowa-bar-alert.uiowa-bar-alert-low {
+    background-color: #e7f6f8;
+}
+
+#uiowa-bar-alert.uiowa-bar-alert-low:before {
+    background-color: #005ea2;
+}
+
+#uiowa-bar-alert.uiowa-bar-alert-medium {
+    background-color: #faf3d1;
+}
+
+#uiowa-bar-alert.uiowa-bar-alert-medium:before {
+    background-color: #ffcd00;
+}
+
+#uiowa-bar-alert.uiowa-bar-alert-high {
+    background-color: #f4e3db;
+}
+
+#uiowa-bar-alert.uiowa-bar-alert-high:before {
+    background-color: #d63e04;
+}
+
+
 
 .clear {
 	clear: left;
@@ -191,12 +294,12 @@ input[type="submit"].uiowa-bar__submit {
 display: inline;
 margin-top: 20px;
 padding-right: 20px;
-	
+
 }
 
 #lilpicardlogo {
-	
-float: left;	
+
+float: left;
 }
 
 #navigation ul li {
@@ -215,7 +318,7 @@ float: left;
 	width: 390px;
 	overflow: auto;
 	float: left;
-	
+
 }
 
 #content-single {
@@ -225,7 +328,7 @@ float: left;
 
 #content {
 	padding: 10px 0;
-	
+
 }
 
 #left {
@@ -238,7 +341,7 @@ float: left;
 #right {
 	width: 234px;
 	float: left;
-	margin-left: 25px; 
+	margin-left: 25px;
 	margin-top: 25px;
 
 }
@@ -265,7 +368,7 @@ float: left;
 	/*border: #FCF 1px solid;*/
 	margin: auto;
 	display: block;
-	
+
 }
 
 #mycarousel img {
@@ -274,9 +377,9 @@ float: left;
 }
 
 /*#mycarousel ul li {
-	border: 1px solid #ddd;	
+	border: 1px solid #ddd;
 	margin: 0 10px;
-	
+
 }*/
 
 #player {
@@ -301,19 +404,19 @@ float: left;
 }
 
 #header img {
-	margin-left: 20px;	
+	margin-left: 20px;
 }
 
 #search-bar {
 	width: 234px;
-	
+
 
 }
 
 
 #search-bar form{
 	width: 270px;
-	
+
 }
 
 #search-bar img {
@@ -329,8 +432,8 @@ float: left;
 	width: 210px;
 	background-color: #ffffcc;
 	padding: 10px;
-	
-	
+
+
 }
 
 #related-works ul li {
@@ -339,7 +442,7 @@ padding-right: 10px;
 }
 
 #related-works .first{
-margin-left: 0;	
+margin-left: 0;
 }
 
 form.category-form legend {
@@ -369,7 +472,7 @@ form.category-form fieldset legend {
   display: block;
 }
 form.category-form fieldset label {
-	
+
   display: block;
   width: auto;
 }
@@ -380,7 +483,7 @@ form.category-form em {
 }
 
 form.category-form span {
-	padding: 0 5px;	
+	padding: 0 5px;
 }
 
 form.category-form fieldset label {
@@ -394,7 +497,7 @@ form.category-form h2 {
 
 #search-options-button{
 	cursor: pointer;
-	
+
 }
 
 #id_search {
@@ -442,18 +545,18 @@ form.category-form h2 {
 #homepage-content{
 
 	width: 1000px;
-	float: left;	
+	float: left;
 	padding: 20px;
 }
 
  #homepage-previewtext {
-	 
+
 	width: 575px;
 
 }
 
  #homepage-previewtext p{
-	 
+
 	padding-top: 0px;
 	margin-top: 0px;
 }
@@ -489,7 +592,7 @@ form.category-form h2 {
 }
 
 #thanks img{
-	float: right;	
+	float: right;
 }
 
 
@@ -497,12 +600,12 @@ form.category-form h2 {
 #guide-content {
 	width: 1000px;
 	padding: 20px;
-	
+
 
 }
 
 .logo{
-	display: block;	
+	display: block;
 	margin-left: 15px;
 }
 
@@ -518,7 +621,7 @@ form.category-form h2 {
 }
 
 .first {
-	margin-left: 0;	
+	margin-left: 0;
 }
 
 #guide-navigation {
@@ -529,7 +632,7 @@ form.category-form h2 {
 }
 
 #guide-navigation a {
-	color: #da1c5c;	
+	color: #da1c5c;
 }
 
 #footer {
@@ -544,7 +647,7 @@ form.category-form h2 {
 }
 
 #uima-logo {
-	float: left;	
+	float: left;
 }
 
 #uilibraries-logo{
@@ -560,7 +663,7 @@ form.category-form h2 {
 	width: 570px;
 	float: left;
 	padding: 0 20px;
-	
+
 }
 
 #post-comments {
@@ -568,31 +671,31 @@ form.category-form h2 {
 	width: 343px;
 	padding: 15px;
 	background: #f1f1f1;
-	
-	
+
+
 }
 
 #post-comments input, #post-comments textarea {
-	width: 315px;	
+	width: 315px;
 }
 
 #post-comments textarea{
-	height: 217px;	
+	height: 217px;
 }
 
 #post-comments .action {
-	
+
 	width: 50px;
-	
+
 }
 #post-comments .field {
-	
+
 	padding: 5px 0;
 }
 
 #post-comments .field label {
 	display: block;
-	padding: 5px 0;	
+	padding: 5px 0;
 }
 
  ul#PageComments li {
@@ -634,7 +737,7 @@ form.category-form h2 {
 }
 
 #thanks-message {
-	padding: 10px 20px;	
+	padding: 10px 20px;
 	background: #fffedf;
 	border: 1px solid #edebae;
 }
