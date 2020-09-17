@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/layout.css">
 <link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/typography.css">
 <title>
-<% if ClassName == "HomePage" %>
+<% if $URLSegment == "home" %>
 $SiteConfig.Title - Stanley Museum of Art
 <% else %>
 $Title - $SiteConfig.Title - Stanley Museum of Art
@@ -33,13 +33,13 @@ $MetaTags(false)
 
 <script type="text/javascript">
 $(function() {
-		   
-		   				
+
+
 			$('input#id_search').quicksearch('table#results tbody tr', {
 				'bind': 'myCustomEvent'
 
 			});
-		   
+
 		   $("a.thickbox").fancybox({
 				'scrolling' : true,
 				'padding' : 0,
@@ -50,19 +50,19 @@ $(function() {
 					return '<span id="fancybox-title-over"> ' + title +'</span>';
 				}
 			});
-		   
+
 		   	$("a.iframe").fancybox({
 			    'width'		: 815,
 				'height'		: 615,
 				'hideOnContentClick': true
 			});
-			
-			
-			
 
-		   
+
+
+
+
 	//$.scrollTo('.section-results', 800);
-	
+
     $("#mycarousel").jCarouselLite({
         btnNext: ".next",
         btnPrev: ".prev",
@@ -70,7 +70,7 @@ $(function() {
 		scroll: 0.5,
 		start: -0.5,
 		circular: false,
-		
+
 
 		btnGo:
 			["#externalControl .1", "#externalControl .2",
@@ -83,16 +83,16 @@ $(function() {
 			"#externalControl .15", "#externalControl .16",
 			"#externalControl .17", "#externalControl .18",
 			"#externalControl .19", "#externalControl .20",
-			
-			
+
+
 			],
-			
+
 		    afterEnd: function(a) {
-		
+
     }
 
-			
-	
+
+
 
 
     });
@@ -108,7 +108,7 @@ $(function() {
 <div id="body-wrapper">
 
 	<div id="header"> <a href="$BaseHref"><img src="$ThemeDir/images/lilpicardlogo.png" id="lilpicardlogo"/></a>
-	
+
 	<div id ="navigation">
 	<ul role="navigation">
 		<% loop Menu(1) %>
@@ -118,14 +118,14 @@ $(function() {
 		<li><a href="$Link"><img src="$ThemeDir/images/navigation_web/{$URLSegment}.png" /></a></li>
 		<% end_if %>
 		<% end_loop %>
-		
+
 		<% if CurrentMember %>
 		<li class="edit"><a href="{$BaseHref}admin/show/{$ID}" target="_blank">edit</a></li>
 		<% end_if %>
-		
+
 	</ul>
 </div>
-		
+
 	</div>
 <div class="clear"></div>
 
@@ -154,7 +154,7 @@ $('#search-options-button').click( function() {
 
 
 function findCheckBoxValues(){
-	
+
 	boxes = document.categoryboxes.myboxes.length;
 	var searchstring = "";
 	for(i=0; i < boxes; i++){
@@ -162,14 +162,14 @@ function findCheckBoxValues(){
 			searchstring = searchstring + " " + document.categoryboxes.myboxes[i].id;
 		}
 	}
-	
+
 	return searchstring;
-	
+
 }
 
 
 $(".search-checkbox").click(function () {
-									  
+
 	var searchstring = findCheckBoxValues();
 	//alert(searchstring);
 
@@ -200,7 +200,7 @@ for (var i = 0, l = imgs.length; i < l; i++) {
 	if(icorrected==current){
 		imgs[i].src ="{$ThemeDir}/images/circle_active.png";
 	}else{
-		
+
 		imgs[i].src ="{$ThemeDir}/images/circle_inactive.png";
 	}
 }
