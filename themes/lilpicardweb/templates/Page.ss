@@ -3,6 +3,7 @@
       <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
+    $GlobalAnalytics
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/reset-min.css">
 <link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/layout.css">
@@ -133,14 +134,17 @@ $(function() {
 	$Layout
 
 <div class="clear"></div>
-<div id="footer" class="typography">
+<div id="footer" class="footer typography">
 
 <a href="http://stanleymuseum.uiowa.edu"><img src="$ThemeDir/images/UISMA_lockup_black.png" id="uima-logo" height="50" /></a><a href="http://www.lib.uiowa.edu/spec-coll/MSC/ToMsC850/MsC817/MsC817_picardlil.htm" target="_blank"><img src="$ThemeDir/images/uilibrarieslogo.png" id="uilibraries-logo" /></a>
 
 <p><a href="https://stanleymuseum.uiowa.edu">University of Iowa Stanley Museum of Art</a><br /><a href="https://stanleymuseum.uiowa.edu/visit/locations/" target="_blank">View museum locations</a><br />Telephone: (319) 335-1727 | Fax: (319) 335 3677| <a href="mailto:stanley-museum@uiowa.edu">stanley-museum@uiowa.edu</a></p>
 <div style="clear: both;"></div>
-</div>
 
+</div>
+<div class="footer__copy">
+<p><a href="http://www.uiowa.edu/homepage/online-privacy-information" class="footer__bar-link" target="_blank" rel="noopener">Privacy Information</a> <a href="https://opsmanual.uiowa.edu/community-policies/nondiscrimination-statement" class="footer__bar-link" target="_blank" rel="noopener">Nondiscrimination Statement</a> <a href="https://uiowa.edu/accessibility" target="_blank" class="footer__bar-link" >Accessibility</a> Created by <a href="https://slc.studentlife.uiowa.edu/" target="_blank" rel="noopener">Student Life Communications</a></p>
+</div>
 
 <script type="text/javascript">
 
